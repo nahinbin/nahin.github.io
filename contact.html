@@ -9,95 +9,130 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="assets/images/logo.png" alt="Logo">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <span class="brand-text"><span class="cursor"></span></span>
             </a>
-            <div class="nav-links">
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="certificates.html" class="nav-link">Certificates</a>
                 <a href="projects.html" class="nav-link">Projects</a>
                 <a href="skills.html" class="nav-link">Skills</a>
                 <a href="contact.html" class="nav-link active">Contact</a>
             </div>
+            <!-- Mobile Navigation Toggle -->
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="menu-icon"></span>
+            </button>
         </div>
     </nav>
 
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-overlay"></div>
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-header">
+                <button class="menu-close" aria-label="Close navigation menu">
+                    <span class="close-icon"></span>
+                </button>
+            </div>
+            <div class="mobile-nav-links">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+                <a href="certificates.html" class="mobile-nav-link">Certificates</a>
+                <a href="projects.html" class="mobile-nav-link">Projects</a>
+                <a href="skills.html" class="mobile-nav-link">Skills</a>
+                <a href="contact.html" class="mobile-nav-link active">Contact</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Contact Section -->
-    <section class="section">
+    <section class="contact-section">
         <div class="container">
-            <h1 class="section-title text-center text-gradient">Get in Touch</h1>
-            <div class="grid grid-2 gap-4">
+            <div class="contact-header">
+                <h1 class="section-title text-gradient">Get in Touch</h1>
+                <p class="contact-subtitle">Let's connect and discuss opportunities</p>
+            </div>
+            
+            <div class="contact-grid">
                 <!-- Contact Information -->
-                <div class="card fade-in">
-                    <h2><i class="fas fa-address-card"></i> Contact Information</h2>
-                    <ul class="contact-list">
-                        <li>
-                            <a href="mailto:MONIR.NAHIN@student.mmu.edu.my" class="contact-link">
+                <div class="contact-info-card fade-in">
+                    <div class="card-header">
+                        <i class="fas fa-address-card"></i>
+                        <h2>Contact Information</h2>
+                    </div>
+                    <div class="contact-list">
+                        <a href="mailto:MONIR.NAHIN@student.mmu.edu.my" class="contact-item">
+                            <div class="contact-icon">
                                 <i class="fas fa-envelope"></i>
-                                <div>
-                                    <strong>Student Email</strong>
-                                    <span class="text-secondary">MONIR.NAHIN@student.mmu.edu.my</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="mailto:nahinbinmunir@gmail.com" class="contact-link">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <strong>Personal Email</strong>
-                                    <span class="text-secondary">nahinbinmunir@gmail.com</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/nahin-bin-monir" target="_blank" class="contact-link">
-                                <i class="fab fa-linkedin"></i>
-                                <div>
-                                    <strong>LinkedIn</strong>
-                                    <span class="text-secondary">nahin-bin-monir</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <div class="contact-link">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                    <strong>Location</strong>
-                                    <span class="text-secondary">Cyberjaya, Malaysia</span>
-                                </div>
                             </div>
-                        </li>
-                    </ul>
+                            <div class="contact-details">
+                                <span class="contact-label">Student Email</span>
+                                <span class="contact-value">MONIR.NAHIN@student.mmu.edu.my</span>
+                            </div>
+                        </a>
+                        <a href="mailto:nahinbinmunir@gmail.com" class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">Personal Email</span>
+                                <span class="contact-value">nahinbinmunir@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/nahinibn" target="_blank" class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">LinkedIn</span>
+                                <span class="contact-value">nahin-bin-monir</span>
+                            </div>
+                        </a>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <span class="contact-label">Location</span>
+                                <span class="contact-value">Cyberjaya, Malaysia</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Contact Form -->
-                <div class="card fade-in">
-                    <h2><i class="fas fa-paper-plane"></i> Send a Message</h2>
+                <div class="contact-form-card fade-in">
+                    <div class="card-header">
+                        <i class="fas fa-paper-plane"></i>
+                        <h2>Send a Message</h2>
+                    </div>
                     <form id="contactForm" class="contact-form" action="mailto:nahinbinmunir@gmail.com" method="post" enctype="text/plain">
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" class="form-control" id="name" name="name" required>
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="subject" class="form-label">Subject</label>
                             <input type="text" class="form-control" id="subject" name="subject" required>
                         </div>
-                        <div class="mb-3">
+                        <div class="form-group">
                             <label for="message" class="form-label">Message</label>
                             <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100">
-                            <i class="fas fa-paper-plane me-2"></i>
-                            Send Message
+                        <button type="submit" class="btn btn-primary submit-btn">
+                            <span>Send Message</span>
                         </button>
                     </form>
                 </div>
@@ -109,67 +144,118 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Navigation</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="certificates.html">Certificates</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="skills.html">Skills</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Logo" class="footer-logo">
                 </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <ul class="footer-links">
-                        <li>
-                            <a href="mailto:MONIR.NAHIN@student.mmu.edu.my">
-                                <i class="fas fa-envelope"></i>
-                                Student Email
-                            </a>
-                        </li>
-                        <li>
-                            <a href="mailto:nahinbinmunir@gmail.com">
-                                <i class="fas fa-envelope"></i>
-                                Personal Email
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/nahin-bin-monir" target="_blank">
-                                <i class="fab fa-linkedin"></i>
-                                LinkedIn
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Location</h3>
-                    <ul class="footer-links">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            Cyberjaya, Malaysia
-                        </li>
-                        <li>
-                            <i class="fas fa-university"></i>
-                            Multimedia University
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html#about">About Me</a></li>
-                        <li><a href="projects.html#latest">Latest Projects</a></li>
-                        <li><a href="skills.html#technical">Technical Skills</a></li>
-                    </ul>
+                <div class="social-links">
+                    <a href="https://github.com/yourusername" target="_blank" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nahin-bin-monir" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://twitter.com/yourusername" target="_blank" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="mailto:nahinbinmunir@gmail.com" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Nahin Bin Monir. All rights reserved.</p>
+                <p>&copy; 2024 All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const body = document.body;
+
+        function toggleMenu() {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        const contactForm = document.getElementById('contactForm');
+        const submitBtn = contactForm.querySelector('.submit-btn');
+        const submitIcon = submitBtn.querySelector('i');
+        const submitText = submitBtn.querySelector('span');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Add loading state
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            submitText.textContent = 'Sending...';
+            
+            try {
+                // Simulate form submission (replace with actual form submission)
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Show success state
+                submitBtn.classList.remove('loading');
+                submitBtn.classList.add('success');
+                submitIcon.className = 'fas fa-check';
+                submitText.textContent = 'Message Sent!';
+                
+                // Reset form
+                contactForm.reset();
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitBtn.classList.remove('success');
+                    submitIcon.className = 'fas fa-paper-plane';
+                    submitText.textContent = 'Send Message';
+                    submitBtn.disabled = false;
+                }, 3000);
+                
+            } catch (error) {
+                // Handle error state
+                submitBtn.classList.remove('loading');
+                submitIcon.className = 'fas fa-exclamation-circle';
+                submitText.textContent = 'Error! Try Again';
+                submitBtn.style.background = '#ff4444';
+                submitBtn.style.borderColor = '#ff4444';
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    submitIcon.className = 'fas fa-paper-plane';
+                    submitText.textContent = 'Send Message';
+                    submitBtn.style.background = '';
+                    submitBtn.style.borderColor = '';
+                    submitBtn.disabled = false;
+                }, 3000);
+            }
+        });
+
+        // Add hover effect for form inputs
+        const formInputs = contactForm.querySelectorAll('.form-control');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('focused');
+            });
+        });
+    });
+    </script>
 </body>
 </html> 
