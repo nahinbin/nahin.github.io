@@ -2054,3 +2054,64 @@ textarea.form-control {
         padding: 0.4rem 0.8rem;
     }
 } 
+
+/* About Me, Education, and Interest - Brighter Text */
+.about-section,
+.education-section,
+.interest-section {
+    color: var(--text-primary);
+}
+
+.about-section p,
+.education-section p,
+.interest-section p,
+.about-section li,
+.education-section li,
+.interest-section li,
+.about-section .card-content,
+.education-section .card-content,
+.interest-section .card-content {
+    color: var(--text-primary);
+}
+
+/* Make About Me, Education, and Interest cards brighter */
+.about-card {
+    background: var(--bg-card);
+    border: 1px solid var(--accent-primary);
+    color: var(--text-primary);
+}
+
+.about-card h3,
+.about-card p,
+.about-card .card-footer,
+.about-card .card-tag {
+    color: var(--text-primary) !important;
+}
+
+.about-card h3 {
+    font-weight: 600;
+}
+
+.about-card .card-footer {
+    border-top: 1px solid var(--border-color);
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-xs);
+}
+
+.about-card .card-tag {
+    background: var(--bg-secondary);
+    color: var(--accent-primary) !important;
+    border-radius: var(--radius-sm);
+    padding: 0.2rem 0.7rem;
+    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    margin-right: 0.5rem;
+    border: 1px solid var(--border-color);
+    display: inline-block;
+}
+
+/* About-card main description: slightly less bright but visible */
+.about-card h3 + p {
+    color: #92a09a !important;
+    font-weight: 400;
+} 
