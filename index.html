@@ -10,45 +10,63 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="logo.png" alt="Logo" class="logo-img" width="32" height="32">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <span class="brand-text"><span class="cursor"></span></span>
             </a>
-            <div class="nav-links">
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav">
                 <a href="index.html" class="nav-link active">Home</a>
                 <a href="certificates.html" class="nav-link">Certificates</a>
                 <a href="projects.html" class="nav-link">Projects</a>
                 <a href="skills.html" class="nav-link">Skills</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
+            <!-- Mobile Navigation Toggle -->
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="menu-icon"></span>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-overlay"></div>
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-header">
+                <button class="menu-close" aria-label="Close navigation menu">
+                    <span class="close-icon"></span>
+                </button>
+            </div>
+            <div class="mobile-nav-links">
+                <a href="index.html" class="mobile-nav-link active">Home</a>
+                <a href="certificates.html" class="mobile-nav-link">Certificates</a>
+                <a href="projects.html" class="mobile-nav-link">Projects</a>
+                <a href="skills.html" class="mobile-nav-link">Skills</a>
+                <a href="contact.html" class="mobile-nav-link">Contact</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <h1 class="hero-title">Nahin Bin Monir</h1>
-                    <p class="hero-subtitle">Computer Science Student @ MMU | Aspiring Developer</p>
-                    <div class="hero-location">
-                        <i class="fas fa-map-marker-alt"></i>
-                        Cyberjaya, Malaysia
-                    </div>
-                    <div class="hero-cta mt-4">
-                        <a href="#about" class="btn btn-primary me-3">
-                            <i class="fas fa-user"></i>
-                            About Me
-                        </a>
-                        <a href="contact.html" class="btn">
-                            <i class="fas fa-envelope"></i>
-                            Contact Me
-                        </a>
-                    </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Nahin Bin Monir</h1>
+                <h2 class="hero-subtitle">Computer Science Student @ MMU | Aspiring Developer</h2>
+                <div class="hero-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Cyberjaya, Malaysia</span>
+                </div>
+                <div class="hero-cta">
+                    <a href="#about" class="btn btn-primary"><span>About Me</span></a>
+                    <a href="contact.html" class="btn btn-outline"><span>Contact</span></a>
                 </div>
             </div>
         </div>
@@ -57,15 +75,32 @@
     <!-- About Section -->
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+            </div>
             <div class="grid grid-2 gap-4">
-                <div class="card">
-                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <div class="card about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education</h3>
                     <p>Currently pursuing a degree in Computer Science at Multimedia University (MMU), Cyberjaya. Focused on developing practical skills in programming, web development, and problem-solving.</p>
+                    <div class="card-footer">
+                        <span class="card-tag">MMU</span>
+                        <span class="card-tag">2022-Present</span>
+                    </div>
                 </div>
-                <div class="card">
-                    <h3><i class="fas fa-code"></i> Interests</h3>
+                <div class="card about-card">
+                    <div class="card-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Interests</h3>
                     <p>Passionate about programming, web development, and creating innovative solutions. Always eager to learn new technologies and best practices in software development.</p>
+                    <div class="card-footer">
+                        <span class="card-tag">Web Dev</span>
+                        <span class="card-tag">Programming</span>
+                        <span class="card-tag">Problem Solving</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,29 +109,57 @@
     <!-- Quick Links Section -->
     <section class="explore-section">
         <div class="container">
-            <h2 class="section-title">Explore</h2>
+            <div class="section-header">
+                <h2 class="section-title">Explore</h2>
+            </div>
             <div class="explore-grid">
                 <a href="certificates.html" class="explore-card">
-                    <i class="fas fa-certificate explore-card-icon"></i>
+                    <div class="card-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
                     <h3>Certificates</h3>
                     <p>View my academic and professional certifications</p>
+                    <div class="card-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </a>
                 <a href="projects.html" class="explore-card">
-                    <i class="fas fa-code explore-card-icon"></i>
+                    <div class="card-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
                     <h3>Projects</h3>
                     <p>Explore my coding projects and contributions</p>
+                    <div class="card-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </a>
                 <a href="skills.html" class="explore-card">
-                    <i class="fas fa-laptop-code explore-card-icon"></i>
+                    <div class="card-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
                     <h3>Skills</h3>
                     <p>Check out my technical and soft skills</p>
+                    <div class="card-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </a>
                 <a href="contact.html" class="explore-card">
-                    <i class="fas fa-envelope explore-card-icon"></i>
+                    <div class="card-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
                     <h3>Contact</h3>
                     <p>Get in touch for opportunities</p>
+                    <div class="card-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
                 </a>
             </div>
+            <button class="scroll-indicator left" aria-label="Scroll left">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="scroll-indicator right" aria-label="Scroll right">
+                <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
     </section>
 
@@ -104,63 +167,26 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Navigation</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="certificates.html"><i class="fas fa-certificate"></i> Certificates</a></li>
-                        <li><a href="projects.html"><i class="fas fa-code"></i> Projects</a></li>
-                        <li><a href="skills.html"><i class="fas fa-laptop-code"></i> Skills</a></li>
-                        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-                    </ul>
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Logo" class="footer-logo">
                 </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <ul class="footer-links">
-                        <li>
-                            <a href="mailto:MONIR.NAHIN@student.mmu.edu.my">
-                                <i class="fas fa-envelope"></i>
-                                Student Email
-                            </a>
-                        </li>
-                        <li>
-                            <a href="mailto:nahinbinmunir@gmail.com">
-                                <i class="fas fa-envelope"></i>
-                                Personal Email
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/nahin-bin-monir" target="_blank">
-                                <i class="fab fa-linkedin"></i>
-                                LinkedIn
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Location</h3>
-                    <ul class="footer-links">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            Cyberjaya, Malaysia
-                        </li>
-                        <li>
-                            <i class="fas fa-university"></i>
-                            Multimedia University
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#about"><i class="fas fa-user"></i> About Me</a></li>
-                        <li><a href="projects.html#latest"><i class="fas fa-code"></i> Latest Projects</a></li>
-                        <li><a href="skills.html#technical"><i class="fas fa-laptop-code"></i> Technical Skills</a></li>
-                    </ul>
+                <div class="social-links">
+                    <a href="https://github.com/yourusername" target="_blank" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nahin-bin-monir" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://twitter.com/yourusername" target="_blank" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="mailto:nahinbinmunir@gmail.com" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Nahin Bin Monir. All rights reserved.</p>
+                <p>&copy; 2024 All rights reserved.</p>
             </div>
         </div>
     </footer>
