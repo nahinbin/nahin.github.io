@@ -10,23 +10,49 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">
-                <img src="logo.png" alt="Logo" class="logo-img" width="32" height="32">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <span class="brand-text"><span class="cursor"></span></span>
             </a>
-            <div class="nav-links">
+            <!-- Desktop Navigation -->
+            <div class="desktop-nav">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="certificates.html" class="nav-link active">Certificates</a>
                 <a href="projects.html" class="nav-link">Projects</a>
                 <a href="skills.html" class="nav-link">Skills</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
+            <!-- Mobile Navigation Toggle -->
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="menu-icon"></span>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-overlay"></div>
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-header">
+                <button class="menu-close" aria-label="Close navigation menu">
+                    <span class="close-icon"></span>
+                </button>
+            </div>
+            <div class="mobile-nav-links">
+                <a href="index.html" class="mobile-nav-link">Home</a>
+                <a href="certificates.html" class="mobile-nav-link active">Certificates</a>
+                <a href="projects.html" class="mobile-nav-link">Projects</a>
+                <a href="skills.html" class="mobile-nav-link">Skills</a>
+                <a href="contact.html" class="mobile-nav-link">Contact</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Certificates Header -->
     <section class="page-header">
@@ -104,68 +130,30 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Navigation</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="certificates.html">Certificates</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="skills.html">Skills</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
+                <div class="footer-brand">
+                    <img src="logo.png" alt="Logo" class="footer-logo">
                 </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <ul class="footer-links">
-                        <li>
-                            <a href="mailto:MONIR.NAHIN@student.mmu.edu.my">
-                                <i class="fas fa-envelope"></i>
-                                Student Email
-                            </a>
-                        </li>
-                        <li>
-                            <a href="mailto:nahinbinmunir@gmail.com">
-                                <i class="fas fa-envelope"></i>
-                                Personal Email
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/nahin-bin-monir" target="_blank">
-                                <i class="fab fa-linkedin"></i>
-                                LinkedIn
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Location</h3>
-                    <ul class="footer-links">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            Cyberjaya, Malaysia
-                        </li>
-                        <li>
-                            <i class="fas fa-university"></i>
-                            Multimedia University
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html#about">About Me</a></li>
-                        <li><a href="projects.html#latest">Latest Projects</a></li>
-                        <li><a href="skills.html#technical">Technical Skills</a></li>
-                    </ul>
+                <div class="social-links">
+                    <a href="https://github.com/yourusername" target="_blank" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/nahin-bin-monir" target="_blank" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://twitter.com/yourusername" target="_blank" class="social-link" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="mailto:nahinbinmunir@gmail.com" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Nahin Bin Monir. All rights reserved.</p>
+                <p>&copy; 2024 All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
     <script>
         // Certificate filtering
         document.addEventListener('DOMContentLoaded', function() {
@@ -187,6 +175,27 @@
                             card.style.display = 'none';
                         }
                     });
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            function toggleMenu() {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navLinks.classList.contains('active')) {
+                        toggleMenu();
+                    }
                 });
             });
         });
