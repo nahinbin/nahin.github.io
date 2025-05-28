@@ -1,185 +1,183 @@
-// Navigation
-document.addEventListener('DOMContentLoaded', () => {
-    // Mobile Navigation Toggle
-    const createMobileNav = () => {
-        const nav = document.querySelector('.nav-links');
-        const mobileNav = document.createElement('div');
-        mobileNav.className = 'mobile-nav';
+// Navigation System
+class Navigation {
+    constructor() {
+        // Elements
+        this.menuToggle = document.querySelector('.menu-toggle');
+        this.menuClose = document.querySelector('.menu-close');
+        this.mobileNav = document.querySelector('.mobile-nav');
+        this.mobileLinks = document.querySelectorAll('.mobile-nav-link');
+        this.desktopLinks = document.querySelectorAll('.nav-link');
         
-        // Clone navigation links
-        const links = nav.cloneNode(true);
-        mobileNav.appendChild(links);
+        // State
+        this.isOpen = false;
         
-        // Create hamburger button
-        const hamburger = document.createElement('button');
-        hamburger.className = 'hamburger';
-        hamburger.innerHTML = `
-            <span></span>
-            <span></span>
-            <span></span>
-        `;
+        // Bind methods
+        this.toggle = this.toggle.bind(this);
+        this.close = this.close.bind(this);
+        this.handleKeydown = this.handleKeydown.bind(this);
+        this.handleResize = this.handleResize.bind(this);
         
-        // Add to navbar
-        const navbar = document.querySelector('.navbar .container');
-        navbar.appendChild(hamburger);
-        document.body.appendChild(mobileNav);
-        
-        // Toggle mobile menu
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileNav.classList.toggle('active');
-            document.body.classList.toggle('nav-open');
-        });
-    };
-
-    // Create mobile navigation if screen is small
-    if (window.innerWidth <= 768) {
-        createMobileNav();
+        // Initialize
+        this.init();
     }
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
+    
+    init() {
+        if (!this.menuToggle || !this.mobileNav) {
+            console.error('Navigation elements not found');
+            return;
+        }
+        
+        // Event listeners
+        this.menuToggle.addEventListener('click', this.toggle);
+        this.menuClose.addEventListener('click', this.close);
+        document.addEventListener('keydown', this.handleKeydown);
+        window.addEventListener('resize', this.handleResize);
+        
+        // Link click handlers
+        this.mobileLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.close();
+                this.navigateTo(link.getAttribute('href'));
+            });
         });
-    });
+        
+        // Desktop link click handlers
+        this.desktopLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    this.navigateTo(link.getAttribute('href'));
+                }
+            });
+        });
+    }
+    
+    toggle(e) {
+        if (e) e.preventDefault();
+        this.isOpen = !this.isOpen;
+        
+        // Update ARIA
+        this.menuToggle.setAttribute('aria-expanded', this.isOpen);
+        
+        // Update classes
+        this.menuToggle.classList.toggle('active');
+        this.mobileNav.classList.toggle('active');
+        
+        // Update body
+        document.body.style.overflow = this.isOpen ? 'hidden' : '';
+        
+        // Debug
+        console.log('Menu toggled:', {
+            isOpen: this.isOpen,
+            toggleActive: this.menuToggle.classList.contains('active'),
+            navActive: this.mobileNav.classList.contains('active')
+        });
+    }
+    
+    close() {
+        if (this.isOpen) {
+            this.toggle();
+        }
+    }
+    
+    handleKeydown(e) {
+        if (e.key === 'Escape' && this.isOpen) {
+            this.close();
+        }
+    }
+    
+    handleResize() {
+        if (window.innerWidth > 768 && this.isOpen) {
+            this.close();
+        }
+    }
+    
+    navigateTo(href) {
+        if (href.startsWith('#')) {
+            // Smooth scroll for anchor links
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        } else {
+            // Regular navigation for other links
+            window.location.href = href;
+        }
+    }
+}
 
-    // Intersection Observer for animations
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize navigation
+    const navigation = new Navigation();
+    
+    // Typing effect for brand text
+    const cursor = document.querySelector('.cursor');
+    if (cursor) {
+        setInterval(() => {
+            cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+        }, 500);
+    }
+    
+    // Intersection Observer for fade-in animations
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const fadeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-                observer.unobserve(entry.target);
+                entry.target.classList.add('visible');
             }
         });
-    }, observerOptions);
-
-    // Observe elements with animation classes
-    document.querySelectorAll('.fade-in, .slide-up, .slide-in').forEach(el => {
-        observer.observe(el);
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    fadeElements.forEach(element => {
+        fadeObserver.observe(element);
     });
 
-    // Form validation and handling
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', (e) => {
-            if (!form.checkValidity()) {
-                e.preventDefault();
-                // Add custom validation handling here
-            }
+    // Explore Section Scroll Functionality
+    const exploreGrid = document.querySelector('.explore-grid');
+    const leftScroll = document.querySelector('.scroll-indicator.left');
+    const rightScroll = document.querySelector('.scroll-indicator.right');
+
+    if (exploreGrid && leftScroll && rightScroll) {
+        const scrollAmount = 300; // Amount to scroll on each click
+
+        // Update scroll indicators visibility
+        function updateScrollIndicators() {
+            const isAtStart = exploreGrid.scrollLeft === 0;
+            const isAtEnd = exploreGrid.scrollLeft + exploreGrid.clientWidth >= exploreGrid.scrollWidth;
+
+            leftScroll.style.opacity = isAtStart ? '0.3' : '0.8';
+            rightScroll.style.opacity = isAtEnd ? '0.3' : '0.8';
+            leftScroll.style.pointerEvents = isAtStart ? 'none' : 'auto';
+            rightScroll.style.pointerEvents = isAtEnd ? 'none' : 'auto';
+        }
+
+        // Scroll handlers
+        leftScroll.addEventListener('click', () => {
+            exploreGrid.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
         });
-    });
 
-    // Add CSS for mobile navigation and animations
-    const style = document.createElement('style');
-    style.textContent = `
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            max-width: 300px;
-            height: 100vh;
-            background: var(--bg-secondary);
-            padding: var(--spacing-xl);
-            transition: right var(--transition-normal);
-            z-index: 1001;
-            box-shadow: var(--shadow-lg);
-        }
+        rightScroll.addEventListener('click', () => {
+            exploreGrid.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
 
-        .mobile-nav.active {
-            right: 0;
-        }
+        // Update indicators on scroll
+        exploreGrid.addEventListener('scroll', updateScrollIndicators);
 
-        .mobile-nav .nav-links {
-            display: flex;
-            flex-direction: column;
-            gap: var(--spacing-md);
-        }
+        // Initial update
+        updateScrollIndicators();
 
-        .hamburger {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: var(--spacing-xs);
-            z-index: 1002;
-        }
-
-        .hamburger span {
-            display: block;
-            width: 25px;
-            height: 2px;
-            background: var(--text-primary);
-            margin: 5px 0;
-            transition: var(--transition-normal);
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
-        }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-
-            body.nav-open {
-                overflow: hidden;
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transition: opacity var(--transition-normal);
-        }
-
-        .fade-in.animate {
-            opacity: 1;
-        }
-
-        .slide-up {
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all var(--transition-normal);
-        }
-
-        .slide-up.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .slide-in {
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all var(--transition-normal);
-        }
-
-        .slide-in.animate {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    `;
-    document.head.appendChild(style);
+        // Update on window resize
+        window.addEventListener('resize', updateScrollIndicators);
+    }
 }); 
