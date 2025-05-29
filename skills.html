@@ -10,6 +10,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/main.js" defer></script>
+    <style>
+        /* Add these styles in the head section after the existing stylesheets */
+        .skill-progress {
+            position: relative;
+            height: 8px;
+            background: linear-gradient(90deg, #4a90e2, #67b26f);
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        .skill-progress::after {
+            content: attr(data-progress);
+            position: absolute;
+            right: -40px;
+            top: -20px;
+            font-size: 12px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .skill-progress.animate {
+            width: var(--progress-width);
+        }
+
+        .skill-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .skill-bar {
+            position: relative;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+        }
+
+        .skill-level {
+            font-size: 12px;
+            color: #666;
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body class="particle-bg">
     <!-- Navigation -->
@@ -84,7 +136,7 @@
                                     <span class="skill-level">Advanced</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
+                                    <div class="skill-progress" data-progress="90%" style="--progress-width: 90%"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -93,7 +145,7 @@
                                     <span class="skill-level">Intermediate</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 75%"></div>
+                                    <div class="skill-progress" data-progress="75%" style="--progress-width: 75%"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -102,7 +154,7 @@
                                     <span class="skill-level">Advanced</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
+                                    <div class="skill-progress" data-progress="85%" style="--progress-width: 85%"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -111,7 +163,7 @@
                                     <span class="skill-level">Intermediate</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 70%"></div>
+                                    <div class="skill-progress" data-progress="70%" style="--progress-width: 70%"></div>
                                 </div>
                             </div>
                         </div>
@@ -130,7 +182,7 @@
                                     <span class="skill-level">Intermediate</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 75%"></div>
+                                    <div class="skill-progress" data-progress="75%" style="--progress-width: 75%"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -139,7 +191,7 @@
                                     <span class="skill-level">Intermediate</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 70%"></div>
+                                    <div class="skill-progress" data-progress="70%" style="--progress-width: 70%"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -148,7 +200,7 @@
                                     <span class="skill-level">Advanced</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
+                                    <div class="skill-progress" data-progress="85%" style="--progress-width: 85%"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -157,7 +209,7 @@
                                     <span class="skill-level">Advanced</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
+                                    <div class="skill-progress" data-progress="90%" style="--progress-width: 90%"></div>
                                 </div>
                             </div>
                         </div>
@@ -176,7 +228,7 @@
                                     <span class="skill-level">Advanced</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
+                                    <div class="skill-progress" data-progress="85%" style="--progress-width: 85%"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -185,7 +237,7 @@
                                     <span class="skill-level">Advanced</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
+                                    <div class="skill-progress" data-progress="90%" style="--progress-width: 90%"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -194,7 +246,7 @@
                                     <span class="skill-level">Intermediate</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 65%"></div>
+                                    <div class="skill-progress" data-progress="65%" style="--progress-width: 65%"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -203,7 +255,7 @@
                                     <span class="skill-level">Intermediate</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 70%"></div>
+                                    <div class="skill-progress" data-progress="70%" style="--progress-width: 70%"></div>
                                 </div>
                             </div>
                         </div>
@@ -222,7 +274,7 @@
                                     <span class="skill-level">Advanced</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
+                                    <div class="skill-progress" data-progress="90%" style="--progress-width: 90%"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -231,7 +283,7 @@
                                     <span class="skill-level">Advanced</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
+                                    <div class="skill-progress" data-progress="85%" style="--progress-width: 85%"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -240,7 +292,7 @@
                                     <span class="skill-level">Advanced</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
+                                    <div class="skill-progress" data-progress="85%" style="--progress-width: 85%"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -249,7 +301,7 @@
                                     <span class="skill-level">Advanced</span>
                                 </div>
                                 <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 80%"></div>
+                                    <div class="skill-progress" data-progress="80%" style="--progress-width: 80%"></div>
                                 </div>
                             </div>
                         </div>
@@ -296,8 +348,11 @@
                     <a href="https://www.linkedin.com/in/nahin-bin-monir" target="_blank" class="social-link" aria-label="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://twitter.com/yourusername" target="_blank" class="social-link" aria-label="Twitter">
-                        <i class="fab fa-twitter"></i>
+                    <a href="https://www.instagram.com/nahinibn" target="_blank" class="social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@nahinibn" target="_blank" class="social-link" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
                     </a>
                     <a href="mailto:nahinbinmunir@gmail.com" class="social-link" aria-label="Email">
                         <i class="fas fa-envelope"></i>
@@ -312,16 +367,33 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Animate skill bars on scroll
+        // Animate skill bars on scroll with percentage counter
         const skillBars = document.querySelectorAll('.skill-progress');
+        
+        const animateProgressBar = (element) => {
+            const progress = element.getAttribute('data-progress');
+            element.style.width = '0%';
+            
+            // Trigger reflow
+            element.offsetHeight;
+            
+            // Animate to full width
+            requestAnimationFrame(() => {
+                element.style.width = progress;
+            });
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.width = entry.target.style.width;
-                    entry.target.classList.add('animate');
+                    animateProgressBar(entry.target);
+                    observer.unobserve(entry.target); // Stop observing once animated
                 }
             });
-        }, { threshold: 0.5 });
+        }, { 
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        });
 
         skillBars.forEach(bar => observer.observe(bar));
 
