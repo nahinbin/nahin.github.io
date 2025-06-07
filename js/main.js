@@ -107,10 +107,79 @@ class Navigation {
     }
 }
 
-// Initialize when DOM is ready
+// Theme management system
+const ThemeManager = {
+    // Default theme colors (Dark theme)
+    defaultTheme: {
+        'primary-color': '#00ff9d',
+        'secondary-color': '#00cc7d',
+        'accent-color': '#00ff9d',
+        'text-primary': '#ffffff',
+        'text-secondary': '#a0a0a0',
+        'bg-primary': '#0a0a0a',
+        'bg-secondary': '#121212',
+        'link-color': '#00ff9d',
+        'hover-color': '#00cc7d',
+        'border-color': '#2a2a2a',
+        'shadow-color': 'rgba(0, 0, 0, 0.2)',
+        'glow-color': 'rgba(0, 255, 157, 0.15)'
+    },
+
+    // Apply theme to document
+    applyTheme(theme) {
+        Object.entries(theme).forEach(([key, value]) => {
+            document.documentElement.style.setProperty(`--${key}`, value);
+        });
+    },
+
+    // Get current theme
+    getCurrentTheme() {
+        const savedTheme = localStorage.getItem('customTheme');
+        return savedTheme ? JSON.parse(savedTheme) : this.defaultTheme;
+    },
+
+    // Save theme
+    saveTheme(theme) {
+        localStorage.setItem('customTheme', JSON.stringify(theme));
+        this.applyTheme(theme);
+    },
+
+    // Restore default theme
+    restoreDefaultTheme() {
+        localStorage.removeItem('customTheme');
+        this.applyTheme(this.defaultTheme);
+    },
+
+    // Initialize theme
+    init() {
+        // Apply theme immediately
+        this.applyTheme(this.getCurrentTheme());
+
+        // Create a style element for dynamic theme updates
+        const styleElement = document.createElement('style');
+        styleElement.id = 'dynamic-theme';
+        document.head.appendChild(styleElement);
+
+        // Listen for theme changes from other pages
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'customTheme') {
+                const newTheme = e.newValue ? JSON.parse(e.newValue) : this.defaultTheme;
+                this.applyTheme(newTheme);
+            }
+        });
+    }
+};
+
+// Initialize theme as early as possible
+ThemeManager.init();
+
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize navigation
     const navigation = new Navigation();
+    
+    // Ensure theme is applied
+    ThemeManager.init();
     
     // Typing effect for brand text
     const cursor = document.querySelector('.cursor');
@@ -180,4 +249,103 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update on window resize
         window.addEventListener('resize', updateScrollIndicators);
     }
+
+    // Smooth scroll to sections
+    function smoothScrollToSection() {
+        const exploreLink = document.querySelector('.explore-link');
+        if (exploreLink) {
+            exploreLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        }
+    }
+
+    // Handle scroll dots for explore section
+    function initScrollDots() {
+        const exploreGrid = document.querySelector('.explore-grid');
+        const dots = document.querySelectorAll('.scroll-dot');
+        
+        if (!exploreGrid || !dots.length) return;
+
+        // Get card width and gap for calculations
+        const cardWidth = exploreGrid.querySelector('.explore-card').offsetWidth;
+        const gap = parseInt(getComputedStyle(exploreGrid).gap);
+        const totalCards = exploreGrid.querySelectorAll('.explore-card').length;
+        let currentIndex = 0;
+
+        // Function to scroll to a specific index
+        function scrollToIndex(index) {
+            if (index < 0) index = 0;
+            if (index >= totalCards) index = totalCards - 1;
+            
+            exploreGrid.scrollTo({
+                left: index * (cardWidth + gap),
+                behavior: 'smooth'
+            });
+            currentIndex = index;
+            updateDots();
+        }
+
+        // Update dots based on scroll position
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        // Handle dot clicks
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                scrollToIndex(index);
+            });
+        });
+
+        // Handle keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            // Only handle if explore section is in view
+            const rect = exploreGrid.getBoundingClientRect();
+            const isInView = (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+
+            if (!isInView) return;
+
+            switch(e.key) {
+                case 'ArrowRight':
+                    e.preventDefault();
+                    scrollToIndex(currentIndex + 1);
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    scrollToIndex(currentIndex - 1);
+                    break;
+            }
+        });
+
+        // Update dots on scroll
+        exploreGrid.addEventListener('scroll', () => {
+            const scrollPosition = exploreGrid.scrollLeft;
+            currentIndex = Math.round(scrollPosition / (cardWidth + gap));
+            updateDots();
+        });
+        
+        // Initial update
+        updateDots();
+    }
+
+    // Initialize when DOM is loaded
+    smoothScrollToSection();
+    initScrollDots();
 }); 
