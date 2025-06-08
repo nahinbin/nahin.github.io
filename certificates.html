@@ -138,20 +138,27 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
-            aspect-ratio: 16/9;
+            aspect-ratio: auto;
             background: #000000;
+            min-height: 300px;
+            max-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .certificate-image {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            max-height: 450px;
+            object-fit: contain;
             transition: transform 0.3s ease;
             cursor: zoom-in;
         }
 
         .certificate-image.zoomed {
             cursor: zoom-out;
+            transform: scale(1.5);
         }
 
         .certificate-details {
@@ -441,7 +448,12 @@
             }
 
             .certificate-image-container {
-                aspect-ratio: 4/3;
+                min-height: 200px;
+                max-height: 350px;
+            }
+
+            .certificate-image {
+                max-height: 300px;
             }
 
             .modal-actions {
@@ -566,6 +578,7 @@
             margin-bottom: var(--spacing-lg);
             flex-wrap: wrap;
             justify-content: center;
+            position: relative;
         }
 
         .filter-btn {
@@ -580,15 +593,83 @@
             min-width: 100px;
         }
 
-        .filter-btn:hover,
-        .filter-btn.active {
-            border-color: var(--accent-primary);
-            color: var(--accent-primary);
-            transform: translateY(-2px);
+        .filter-dropdown {
+            display: none;
+            width: 100%;
+            max-width: 200px;
+            margin: 0 auto;
+            position: relative;
         }
 
-        .filter-btn.active {
+        .filter-dropdown-btn {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all var(--transition-normal);
+        }
+
+        .filter-dropdown-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .filter-dropdown-btn.active i {
+            transform: rotate(180deg);
+        }
+
+        .filter-dropdown-content {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-top: none;
+            z-index: 100;
+            display: none;
+            flex-direction: column;
+            margin-top: 4px;
+        }
+
+        .filter-dropdown-content.show {
+            display: flex;
+        }
+
+        .filter-dropdown-btn:hover,
+        .filter-dropdown-content .filter-btn:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        .filter-dropdown-content .filter-btn {
+            width: 100%;
+            border: none;
+            border-radius: 0;
+            text-align: left;
+            padding: 0.75rem 1rem;
             background: transparent;
+        }
+
+        .filter-dropdown-content .filter-btn.active {
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--accent-primary);
+        }
+
+        @media (max-width: 768px) {
+            .certificates-filter {
+                display: none;
+            }
+
+            .filter-dropdown {
+                display: block;
+                margin-bottom: 2rem;
+            }
         }
 
         .certificate-card {
@@ -795,22 +876,31 @@
         </div>
     </div>
 
-    <!-- Certificates Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1 class="page-title">Certificates & Achievements</h1>
-            <p class="page-subtitle">Academic and professional certifications that showcase my learning journey</p>
-        </div>
-    </section>
-
     <!-- Certificates Grid -->
     <section class="certificates-section">
         <div class="container">
+            <!-- Desktop Filter -->
             <div class="certificates-filter fade-in">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="academic">Academic</button>
                 <button class="filter-btn" data-filter="professional">Professional</button>
                 <button class="filter-btn" data-filter="online">Online Courses</button>
+                <button class="filter-btn" data-filter="events">Events</button>
+            </div>
+
+            <!-- Mobile Filter Dropdown -->
+            <div class="filter-dropdown">
+                <button class="filter-dropdown-btn">
+                    <span>Certificate Type</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="filter-dropdown-content">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="academic">Academic</button>
+                    <button class="filter-btn" data-filter="professional">Professional</button>
+                    <button class="filter-btn" data-filter="online">Online Courses</button>
+                    <button class="filter-btn" data-filter="events">Events</button>
+                </div>
             </div>
             
             <div class="certificates-grid">
@@ -820,42 +910,26 @@
                         <i class="fas fa-graduation-cap"></i>
                     </div>
                     <div class="certificate-content">
-                        <h3>Bachelor of Computer Science</h3>
+                        <h3>Foundation in Computing</h3>
                         <p class="certificate-issuer">Multimedia University</p>
-                        <p class="certificate-date">2022 - Present</p>
-                        <p class="certificate-description">Currently pursuing a degree in Computer Science with focus on software development and programming.</p>
+                        <p class="certificate-date">2024 - Present</p>
+                        <p class="certificate-description">Currently pursuing a Foundation in Computing with focus on software development and programming.</p>
                     </div>
                     <div class="certificate-status">
                         <span class="status-badge ongoing">In Progress</span>
                     </div>
                 </div>
 
-                <!-- Professional Certificates -->
-                <div class="certificate-card" data-category="professional" data-certificate-id="meta-web-dev">
+                <!-- Event Certificates -->
+                <div class="certificate-card" data-category="events" data-certificate-id="gdg-build-ai">
                     <div class="certificate-icon">
-                        <i class="fas fa-certificate"></i>
+                        <i class="fas fa-robot"></i>
                     </div>
                     <div class="certificate-content">
-                        <h3>Web Development Professional</h3>
-                        <p class="certificate-issuer">Meta</p>
-                        <p class="certificate-date">2023</p>
-                        <p class="certificate-description">Comprehensive web development certification covering front-end and back-end technologies.</p>
-                    </div>
-                    <div class="certificate-status">
-                        <span class="status-badge completed">Completed</span>
-                    </div>
-                </div>
-
-                <!-- Online Course Certificates -->
-                <div class="certificate-card" data-category="online" data-certificate-id="python-coursera">
-                    <div class="certificate-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div class="certificate-content">
-                        <h3>Python Programming</h3>
-                        <p class="certificate-issuer">Coursera</p>
-                        <p class="certificate-date">2023</p>
-                        <p class="certificate-description">Advanced Python programming course covering data structures, algorithms, and best practices.</p>
+                        <h3>Build with AI</h3>
+                        <p class="certificate-issuer">Google Developer Groups MMU</p>
+                        <p class="certificate-date">2025</p>
+                        <p class="certificate-description">Participated in a hands-on workshop focused on building AI-powered applications using Google's latest AI tools and technologies.</p>
                     </div>
                     <div class="certificate-status">
                         <span class="status-badge completed">Completed</span>
@@ -945,49 +1019,18 @@
         <span id="toastMessage"></span>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="logo.png" alt="Logo" class="footer-logo">
-                </div>
-                <div class="social-links">
-                    <a href="https://github.com/yourusername" target="_blank" class="social-link" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/nahin-bin-monir" target="_blank" class="social-link" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.instagram.com/nahinibn" target="_blank" class="social-link" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@nahinibn" target="_blank" class="social-link" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="mailto:nahinbinmunir@gmail.com" class="social-link" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
     <script>
         // Certificate data
         const certificateData = {
             'bachelor-cs': {
                 title: 'Bachelor of Computer Science',
                 organization: 'Multimedia University',
-                date: '2022 - Present',
-                duration: '4 Years',
+                date: '2025 - Present',
+                duration: '1 year',
                 status: 'In Progress',
                 progress: 20,
-                description: 'Currently pursuing a degree in Computer Science with focus on software development and programming. The program covers fundamental computer science concepts, software engineering principles, and practical programming skills.',
-                skills: ['Software Development', 'Programming', 'Data Structures', 'Algorithms', 'Database Management', 'Web Development', 'Mobile Development', 'Cloud Computing'],
+                description: 'Currently pursuing a foundation in Computingwith focus on software development and programming. The program covers fundamental computer science concepts, software engineering principles, and practical programming skills.',
+                skills: ['Programming', 'Python', 'Javascript'],
                 image: 'logo.png',
                 credentialLink: 'https://www.mmu.edu.my/verify',
                 credentialId: 'MMU-CS-2022-001',
@@ -1018,6 +1061,19 @@
                 credentialLink: 'https://www.coursera.org/account/accomplishments/verify/YYYY',
                 credentialId: 'COURSERA-PY-2023-001',
                 location: 'Online'
+            },
+            'gdg-build-ai': {
+                title: 'Build with AI',
+                organization: 'Google Developer Groups MMU',
+                date: '2025',
+                duration: '1 Day',
+                status: 'Completed',
+                description: 'Participated in a hands-on workshop focused on building AI-powered applications using Google\'s latest AI tools and technologies. The event covered practical implementation of AI features, integration with Google Cloud services, and best practices for AI development.',
+                skills: ['AI Development', 'Google Cloud', 'Machine Learning', 'API Integration', 'Cloud Computing', 'TensorFlow', 'Python'],
+                image: 'assets/images/build-with-ai.jpg',
+                credentialLink: 'https://gdg.community.dev/events/details/google-gdg-mmu-presents-build-with-ai/',
+                credentialId: 'GDG-MMU-AI-2024-001',
+                location: 'Multimedia University, Cyberjaya'
             }
         };
 
@@ -1277,22 +1333,54 @@
         document.addEventListener('DOMContentLoaded', function() {
             const filterBtns = document.querySelectorAll('.filter-btn');
             const certificateCards = document.querySelectorAll('.certificate-card');
+            const dropdownBtn = document.querySelector('.filter-dropdown-btn');
+            const dropdownContent = document.querySelector('.filter-dropdown-content');
+
+            // Toggle dropdown
+            dropdownBtn.addEventListener('click', () => {
+                dropdownBtn.classList.toggle('active');
+                dropdownContent.classList.toggle('show');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!dropdownBtn.contains(e.target) && !dropdownContent.contains(e.target)) {
+                    dropdownBtn.classList.remove('active');
+                    dropdownContent.classList.remove('show');
+                }
+            });
+
+            function filterCertificates(filter) {
+                // Update active button in both desktop and mobile views
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    if (btn.dataset.filter === filter) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+
+                // Update dropdown button text
+                const activeFilter = document.querySelector('.filter-btn.active');
+                dropdownBtn.querySelector('span').textContent = activeFilter.textContent;
+
+                // Filter certificates
+                certificateCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Close dropdown after selection on mobile
+                dropdownBtn.classList.remove('active');
+                dropdownContent.classList.remove('show');
+            }
 
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', () => {
-                    // Update active button
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    // Filter certificates
-                    const filter = btn.dataset.filter;
-                    certificateCards.forEach(card => {
-                        if (filter === 'all' || card.dataset.category === filter) {
-                            card.style.display = 'flex';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
+                    filterCertificates(btn.dataset.filter);
                 });
             });
         });
