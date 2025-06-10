@@ -1,279 +1,170 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projects by Nahin Bin Monir - Computer Science Student & Developer">
-    <title>Projects | Nahin Bin Monir</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/main.js" defer></script>
-</head>
-<body class="particle-bg">
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="logo.png" alt="Logo" class="logo-img">
-                <span class="brand-text"><span class="cursor"></span></span>
-            </a>
-            <!-- Desktop Navigation -->
-            <div class="desktop-nav">
-                <a href="index.html" class="nav-link">Home</a>
-                <a href="certificates.html" class="nav-link">Certificates</a>
-                <a href="projects.html" class="nav-link active">Projects</a>
-                <a href="skills.html" class="nav-link">Skills</a>
-                <a href="contact.html" class="nav-link">Contact</a>
-            </div>
-            <!-- Mobile Navigation Toggle -->
-            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span class="menu-icon"></span>
-            </button>
-        </div>
-    </nav>
+    <link rel="stylesheet" href="styles.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>knowbout<nahin></title>
+            <!-- Bootstrap-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css"/>
 
-    <!-- Mobile Navigation Menu -->
-    <div class="mobile-nav">
-        <div class="mobile-nav-overlay"></div>
-        <div class="mobile-nav-content">
-            <div class="mobile-nav-header">
-                <button class="menu-close" aria-label="Close navigation menu">
-                    <span class="close-icon"></span>
-                </button>
-            </div>
-            <div class="mobile-nav-links">
-                <a href="index.html" class="mobile-nav-link">Home</a>
-                <a href="certificates.html" class="mobile-nav-link">Certificates</a>
-                <a href="projects.html" class="mobile-nav-link active">Projects</a>
-                <a href="skills.html" class="mobile-nav-link">Skills</a>
-                <a href="contact.html" class="mobile-nav-link">Contact</a>
-            </div>
-        </div>
-    </div>
 
-    <!-- Projects Section -->
-    <section class="projects-section">
-        <div class="container">
-            <div class="projects-header">
-                <h1 class="section-title text-gradient">My Projects</h1>
-                <p class="projects-subtitle">A collection of my coding projects and contributions</p>
-            </div>
+        
 
-            <!-- Latest Projects -->
-            <div class="projects-category">
-                <div class="category-header">
-                    <h2 class="category-title">
-                        <i class="fas fa-star"></i>
-                        Latest Projects
-                    </h2>
-                    <div class="category-line"></div>
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-sm fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="assets/images/logo.png" alt="nahin's logo" class="logo">
+                    </a>
                 </div>
-                <div class="projects-grid featured">
-                    <!-- Project 1 -->
-                    <div class="project-card fade-in">
-                        <div class="project-badge">Latest</div>
-                        <div class="project-image">
-                            <img src="assets/images/personal-website.png" alt="Personal Website Project">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://github.com/yourusername/personal-website" target="_blank" class="project-link" aria-label="View Code">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="index.html" class="project-link" aria-label="Live Demo">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <!-- First Section with Scroll Hint -->
+                <section id="projects" class="projects">
+                    <div class="container">
+                        <div class="projects-header">
+                            <h1>Take a look at the journey, that made me love to code.</h1>
+                        </div>
+                        <div class="scroll-hint-container">
+                            <a href="#project-list" class="scroll-hint">
+                                <span>⌵</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Project List Section - No Scroll Hint -->
+                <section id="project-list" class="project-list-section">
+                    <div class="container">
+                        <div class="projects-scroll-container">
+                            <div class="project-card">
+                                <div class="project-card-inner">
+                                    <div class="project-preview">
+                                        <img src="assets/images/personal-website.png" alt="Project 1 Preview">
+                                    </div>
+                                    <div class="project-content">
+                                        <h2 class="project-title">project 1</h2>
+                                        <button type="button" class="project-link toggle-description">View Project</button>
+                                        <div class="project-description">
+                                            <p class="description-text">A minimalistic personal website built with HTML, CSS, and JavaScript.</p>
+                                            <div class="project-buttons">
+                                                <a href="#" class="project-button live-button">View Live</a>
+                                                <a href="#" class="project-button github-button">View on GitHub</a>
+                                            </div>
+                                            <br><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-card-inner">
+                                    <div class="project-preview">
+                                        <img src="assets/images/logo.png" alt="Project 2 Preview">
+                                    </div>
+                                    <div class="project-content">
+                                        <h2 class="project-title">project 2</h2>
+                                        <button type="button" class="project-link toggle-description">View Project</button>
+                                        <div class="project-description">
+                                            <p class="description-text">Description of project 2 goes here. This will explain what the project does and what technologies were used.</p>
+                                            <div class="project-buttons">
+                                                <a href="#" class="project-button live-button">View Live</a>
+                                                <a href="#" class="project-button github-button">View on GitHub</a>
+                                            </div>
+                                            <br><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-card-inner">
+                                    <div class="project-preview">
+                                        <img src="assets/images/logo.png" alt="Project 3 Preview">
+                                    </div>
+                                    <div class="project-content">
+                                        <h2 class="project-title">project 3</h2>
+                                        <button type="button" class="project-link toggle-description">View Project</button>
+                                        <div class="project-description">
+                                            <p class="description-text">Description of project 3 goes here. This will explain what the project does and what technologies were used.</p>
+                                            <div class="project-buttons">
+                                                <a href="#" class="project-button live-button">View Live</a>
+                                                <a href="#" class="project-button github-button">View on GitHub</a>
+                                            </div>
+                                            <br><br>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="project-content">
-                            <h3>Personal Website</h3>
-                            <p class="project-description">A modern, responsive personal website built with HTML, CSS, and JavaScript. Features a clean design, smooth animations, and a contact form.</p>
-                            <div class="project-tech">
-                                <span class="tech-badge">HTML</span>
-                                <span class="tech-badge">CSS</span>
-                                <span class="tech-badge">JavaScript</span>
-                                <span class="tech-badge">Bootstrap</span>
-                            </div>
+                        <div class="project-dots">
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
                         </div>
                     </div>
-
-                    <!-- Project 2 -->
-                    <div class="project-card fade-in">
-                        <div class="project-image">
-                            <img src="images/projects/task-manager.jpg" alt="Task Management App">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://github.com/yourusername/task-manager" target="_blank" class="project-link" aria-label="View Code">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="project-link" aria-label="Live Demo">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Task Management App</h3>
-                            <p class="project-description">A full-stack task management application with user authentication, task creation, and real-time updates.</p>
-                            <div class="project-tech">
-                                <span class="tech-badge">React</span>
-                                <span class="tech-badge">Node.js</span>
-                                <span class="tech-badge">MongoDB</span>
-                                <span class="tech-badge">Express</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </section>
             </div>
-
-            <!-- Other Projects -->
-            <div class="projects-category">
-                <div class="category-header">
-                    <h2 class="category-title">
-                        <i class="fas fa-code-branch"></i>
-                        Other Projects
-                    </h2>
-                    <div class="category-line"></div>
-                </div>
-                <div class="projects-grid">
-                    <!-- Project 3 -->
-                    <div class="project-card fade-in">
-                        <div class="project-image">
-                            <img src="images/projects/weather-app.jpg" alt="Weather App">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://github.com/yourusername/weather-app" target="_blank" class="project-link" aria-label="View Code">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="project-link" aria-label="Live Demo">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Weather App</h3>
-                            <p class="project-description">A responsive weather application that provides real-time weather information and forecasts.</p>
-                            <div class="project-tech">
-                                <span class="tech-badge">JavaScript</span>
-                                <span class="tech-badge">API</span>
-                                <span class="tech-badge">CSS</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="project-card fade-in">
-                        <div class="project-image">
-                            <img src="images/projects/game.jpg" alt="Simple Game">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://github.com/yourusername/simple-game" target="_blank" class="project-link" aria-label="View Code">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="project-link" aria-label="Live Demo">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Simple Game</h3>
-                            <p class="project-description">A browser-based game built with JavaScript and HTML5 Canvas, featuring simple mechanics and engaging gameplay.</p>
-                            <div class="project-tech">
-                                <span class="tech-badge">JavaScript</span>
-                                <span class="tech-badge">Canvas</span>
-                                <span class="tech-badge">HTML5</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Project 5 -->
-                    <div class="project-card fade-in">
-                        <div class="project-image">
-                            <img src="images/projects/blog.jpg" alt="Blog Platform">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://github.com/yourusername/blog-platform" target="_blank" class="project-link" aria-label="View Code">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                    <a href="#" class="project-link" aria-label="Live Demo">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3>Blog Platform</h3>
-                            <p class="project-description">A simple blog platform with markdown support, user authentication, and comment functionality.</p>
-                            <div class="project-tech">
-                                <span class="tech-badge">Python</span>
-                                <span class="tech-badge">Flask</span>
-                                <span class="tech-badge">SQLite</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="logo.png" alt="Logo" class="footer-logo">
-                </div>
-                <div class="social-links">
-                    <a href="https://github.com/yourusername" target="_blank" class="social-link" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/nahin-bin-monir" target="_blank" class="social-link" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://www.instagram.com/nahinibn" target="_blank" class="social-link" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.youtube.com/@nahinibn" target="_blank" class="social-link" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="mailto:nahinbinmunir@gmail.com" class="social-link" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
+        </main>
+    </body>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        const body = document.body;
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.projects-scroll-container');
+            const dots = document.querySelectorAll('.dot');
+            
+            // Update dots on scroll
+            container.addEventListener('scroll', () => {
+                const scrollPosition = container.scrollLeft;
+                const cardWidth = container.offsetWidth;
+                const activeIndex = Math.round(scrollPosition / cardWidth);
+                
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === activeIndex);
+                });
+            });
 
-        function toggleMenu() {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-        }
+            // Click dot to scroll
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    const cardWidth = container.offsetWidth;
+                    container.scrollTo({
+                        left: index * cardWidth,
+                        behavior: 'smooth'
+                    });
+                });
+            });
 
-        hamburger.addEventListener('click', toggleMenu);
-
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navLinks.classList.contains('active')) {
-                    toggleMenu();
-                }
+            // Toggle project descriptions
+            const toggleButtons = document.querySelectorAll('.toggle-description');
+            
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const description = button.nextElementSibling;
+                    const cardInner = button.closest('.project-card-inner');
+                    const isOpen = description.classList.contains('active');
+                    
+                    // Close all descriptions and remove active classes
+                    document.querySelectorAll('.project-description').forEach(desc => {
+                        desc.classList.remove('active');
+                        desc.style.maxHeight = null;
+                        desc.closest('.project-card-inner')?.classList.remove('description-active');
+                    });
+                    
+                    // Toggle current description
+                    if (!isOpen) {
+                        description.classList.add('active');
+                        description.style.maxHeight = description.scrollHeight + "px";
+                        cardInner.classList.add('description-active');
+                    }
+                });
             });
         });
-    });
     </script>
-</body>
-</html> 
+</html>
