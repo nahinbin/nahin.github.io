@@ -262,13 +262,14 @@
 
         .hud {
             position: absolute;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 15px 25px;
-            border: 2px solid #00b4d8;
+            background: rgba(0, 0, 0, 0.7);
             color: #fff;
-            font-size: 24px;
-            z-index: 3;
-            box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            z-index: 100;
+            border: 2px solid #00b4d8;
+            box-shadow: 0 0 15px rgba(0, 180, 216, 0.3);
         }
 
         #score {
@@ -277,8 +278,19 @@
         }
 
         #speed {
-            top: 20px;
-            left: 20px;
+            top: 25%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            min-width: 150px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 25px;
+            border-radius: 0;
+            text-shadow: 0 0 10px rgba(0, 180, 216, 0.5);
+            border: 2px solid #00b4d8;
+            box-shadow: 0 0 15px rgba(0, 180, 216, 0.3);
         }
 
         #game-over {
@@ -317,8 +329,9 @@
             width: 200px;
             height: 10px;
             background: rgba(255, 255, 255, 0.2);
-            border: 1px solid #00b4d8;
-            z-index: 3;
+            border-radius: 5px;
+            overflow: hidden;
+            z-index: 100;
         }
 
         .speed-fill {
@@ -357,6 +370,89 @@
                 opacity: 0;
             }
         }
+
+        /* Mobile Controls */
+        #mobile-controls {
+            display: none;
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            width: 200px;
+            height: 200px;
+            pointer-events: none;
+        }
+
+        .mobile-control-btn {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+            pointer-events: auto;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        #btn-w {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #btn-a {
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+        }
+
+        #btn-s {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #btn-d {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+
+        @media (max-width: 768px) {
+            #mobile-controls {
+                display: block !important;
+            }
+        }
+
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid #00b4d8;
+        }
+
+        .game-header img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .score {
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 180, 216, 0.5);
+        }
     </style>
 </head>
 <body>
@@ -368,8 +464,10 @@
             <p id="code-error">Incorrect code</p>
         </div>
         <div id="menu">
-            <h1>Street Racing</h1>
             <div class="controls-info">
+            <div class="game-header">
+                <img src="https://nahin.space/logo.png" alt="Nahin.space Logo" style="height: 20px; width: auto;">
+            </div>
                 <p><span class="key">W</span> Accelerate</p>
                 <p><span class="key">A</span> Move Left</p>
                 <p><span class="key">D</span> Move Right</p>
@@ -378,6 +476,10 @@
             <button id="start-game">Start Race</button>
         </div>
         <div id="game-area">
+            <div class="game-header">
+                <img src="https://nahin.space/logo.png" alt="Nahin.space Logo" style="height: 30px; width: auto;">
+                <div class="score">Score: <span id="score">0</span></div>
+            </div>
             <div id="road">
                 <div class="road-surface"></div>
                 <div class="lane"><div class="lane-line"></div></div>
@@ -387,7 +489,6 @@
                 <div class="road-edge"></div>
             </div>
             <div id="player-car"></div>
-            <div id="score" class="hud">Score: 0</div>
             <div id="speed" class="hud">Speed: 0 km/h</div>
             <div class="speed-bar">
                 <div class="speed-fill"></div>
@@ -398,6 +499,12 @@
                 <p>Score: <span id="final-score">0</span></p>
                 <p>Top Speed: <span id="top-speed">0</span> km/h</p>
                 <button onclick="restartGame()">Race Again</button>
+            </div>
+            <div id="mobile-controls">
+                <button class="mobile-control-btn" id="btn-w">W</button>
+                <button class="mobile-control-btn" id="btn-a">A</button>
+                <button class="mobile-control-btn" id="btn-s">S</button>
+                <button class="mobile-control-btn" id="btn-d">D</button>
             </div>
         </div>
     </div>
@@ -492,6 +599,8 @@
             moveToLane(currentLane);
             
             animationFrame = requestAnimationFrame(gameLoop);
+            setupMobileControls();
+            document.getElementById('mobile-controls').style.display = 'block';
         }
         
         function gameLoop(currentTime) {
@@ -726,6 +835,8 @@
                 obstacles.pop().remove();
             }
             driftEffect.innerHTML = '';
+            activeButtons.clear();
+            [btnW, btnA, btnS, btnD].forEach(btn => btn.classList.remove('active'));
         }
         
         // Optimize window resize handling
@@ -738,6 +849,184 @@
                 moveToLane(currentLane);
             }, 100);
         });
+
+        const btnW = document.getElementById('btn-w');
+        const btnA = document.getElementById('btn-a');
+        const btnS = document.getElementById('btn-s');
+        const btnD = document.getElementById('btn-d');
+
+        let activeButtons = new Set();
+        let gameLoopInterval;
+
+        // Add debug overlay
+        const debugOverlay = document.createElement('div');
+        debugOverlay.style.cssText = `
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+            font-family: monospace;
+            font-size: 12px;
+            max-width: 80%;
+            max-height: 200px;
+            overflow-y: auto;
+        `;
+        document.body.appendChild(debugOverlay);
+
+        function debugLog(message) {
+            console.log(message);
+            const logEntry = document.createElement('div');
+            logEntry.textContent = `${new Date().toISOString().split('T')[1].split('.')[0]}: ${message}`;
+            debugOverlay.appendChild(logEntry);
+            if (debugOverlay.children.length > 10) {
+                debugOverlay.removeChild(debugOverlay.firstChild);
+            }
+        }
+
+        function setupMobileControls() {
+            console.log('Setting up basic mobile controls');
+
+            // Get button elements
+            const btnW = document.getElementById('btn-w');
+            const btnA = document.getElementById('btn-a');
+            const btnS = document.getElementById('btn-s');
+            const btnD = document.getElementById('btn-d');
+
+            // Track active buttons and intervals
+            const activeButtons = new Set();
+            const intervals = {};
+
+            // Function to handle continuous action
+            function startContinuousAction(key) {
+                if (activeButtons.has(key)) return;
+                activeButtons.add(key);
+                
+                // Clear any existing interval for this key
+                if (intervals[key]) {
+                    clearInterval(intervals[key]);
+                }
+
+                // Create new interval for continuous action
+                intervals[key] = setInterval(() => {
+                    if (isGameRunning && activeButtons.has(key)) {
+                        handleKeyPress({ key: key });
+                    } else {
+                        stopContinuousAction(key);
+                    }
+                }, 16); // ~60fps
+            }
+
+            // Function to stop continuous action
+            function stopContinuousAction(key) {
+                activeButtons.delete(key);
+                if (intervals[key]) {
+                    clearInterval(intervals[key]);
+                    delete intervals[key];
+                }
+                if (isGameRunning) {
+                    handleKeyUp({ key: key });
+                }
+            }
+
+            // A and D buttons (one-time actions)
+            btnA.onmousedown = () => {
+                if (isGameRunning) handleKeyPress({ key: 'a' });
+            };
+            btnA.onmouseup = () => {
+                if (isGameRunning) handleKeyUp({ key: 'a' });
+            };
+            btnA.ontouchstart = (e) => {
+                e.preventDefault();
+                if (isGameRunning) handleKeyPress({ key: 'a' });
+            };
+            btnA.ontouchend = (e) => {
+                e.preventDefault();
+                if (isGameRunning) handleKeyUp({ key: 'a' });
+            };
+
+            btnD.onmousedown = () => {
+                if (isGameRunning) handleKeyPress({ key: 'd' });
+            };
+            btnD.onmouseup = () => {
+                if (isGameRunning) handleKeyUp({ key: 'd' });
+            };
+            btnD.ontouchstart = (e) => {
+                e.preventDefault();
+                if (isGameRunning) handleKeyPress({ key: 'd' });
+            };
+            btnD.ontouchend = (e) => {
+                e.preventDefault();
+                if (isGameRunning) handleKeyUp({ key: 'd' });
+            };
+
+            // W button (continuous acceleration)
+            btnW.onmousedown = () => startContinuousAction('w');
+            btnW.onmouseup = () => stopContinuousAction('w');
+            btnW.ontouchstart = (e) => {
+                e.preventDefault();
+                startContinuousAction('w');
+            };
+            btnW.ontouchend = (e) => {
+                e.preventDefault();
+                stopContinuousAction('w');
+            };
+            btnW.ontouchcancel = (e) => {
+                e.preventDefault();
+                stopContinuousAction('w');
+            };
+
+            // S button (continuous braking)
+            btnS.onmousedown = () => startContinuousAction('s');
+            btnS.onmouseup = () => stopContinuousAction('s');
+            btnS.ontouchstart = (e) => {
+                e.preventDefault();
+                startContinuousAction('s');
+            };
+            btnS.ontouchend = (e) => {
+                e.preventDefault();
+                stopContinuousAction('s');
+            };
+            btnS.ontouchcancel = (e) => {
+                e.preventDefault();
+                stopContinuousAction('s');
+            };
+
+            // Make sure buttons are visible
+            document.getElementById('mobile-controls').style.display = 'block';
+            console.log('Mobile controls setup complete');
+
+            // Clean up intervals when game ends
+            const originalEndGame = endGame;
+            endGame = function() {
+                // Stop all continuous actions
+                ['w', 's'].forEach(key => stopContinuousAction(key));
+                originalEndGame();
+            };
+        }
+
+        // Set up controls when game starts
+        const originalStartGame = startGame;
+        startGame = function() {
+            originalStartGame();
+            setupMobileControls();
+        };
+
+        // Also set up controls immediately if on mobile
+        if (window.innerWidth <= 768) {
+            setupMobileControls();
+        }
+
+        // Clean up on page unload
+        window.addEventListener('beforeunload', () => {
+            if (gameLoopInterval) {
+                clearInterval(gameLoopInterval);
+            }
+        });
     </script>
 </body>
 </html>
+
