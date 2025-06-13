@@ -45,6 +45,7 @@
                 <!-- Project List Section - No Scroll Hint -->
                 <section id="project-list" class="project-list-section">
                     <div class="container">
+                        <span class="scroll-btn scroll-left">&lt;</span>
                         <div class="projects-scroll-container">
                             <div class="project-card">
                                 <div class="project-card-inner">
@@ -104,6 +105,7 @@
                                 </div>
                             </div>
                         </div>
+                        <span class="scroll-btn scroll-right">&gt;</span>
                         <div class="project-dots">
                             <div class="dot active"></div>
                             <div class="dot"></div>
@@ -121,6 +123,49 @@
         document.addEventListener('DOMContentLoaded', function() {
             const container = document.querySelector('.projects-scroll-container');
             const dots = document.querySelectorAll('.dot');
+            const scrollLeftBtn = document.querySelector('.scroll-left');
+            const scrollRightBtn = document.querySelector('.scroll-right');
+            
+            // Function to check if we can scroll
+            function canScroll() {
+                const canScrollLeft = container.scrollLeft > 0;
+                const canScrollRight = container.scrollLeft < (container.scrollWidth - container.clientWidth);
+                
+                scrollLeftBtn.style.opacity = canScrollLeft ? '0.7' : '0.3';
+                scrollRightBtn.style.opacity = canScrollRight ? '0.7' : '0.3';
+                scrollLeftBtn.style.pointerEvents = canScrollLeft ? 'auto' : 'none';
+                scrollRightBtn.style.pointerEvents = canScrollRight ? 'auto' : 'none';
+            }
+
+            // Function to scroll
+            function scroll(direction) {
+                container.scrollBy({
+                    left: direction * container.offsetWidth,
+                    behavior: 'smooth'
+                });
+            }
+
+            // Add click handlers for scroll buttons
+            scrollLeftBtn.addEventListener('click', () => {
+                if (scrollLeftBtn.style.pointerEvents !== 'none') {
+                    scroll(-1);
+                }
+            });
+
+            scrollRightBtn.addEventListener('click', () => {
+                if (scrollRightBtn.style.pointerEvents !== 'none') {
+                    scroll(1);
+                }
+            });
+
+            // Update button states on scroll
+            container.addEventListener('scroll', canScroll);
+
+            // Update button states on resize
+            window.addEventListener('resize', canScroll);
+
+            // Initial button state
+            canScroll();
             
             // Update dots on scroll
             container.addEventListener('scroll', () => {

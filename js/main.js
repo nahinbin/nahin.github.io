@@ -1,30 +1,64 @@
 // Certificate Modal and Filter Functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Dot navigation functionality
+    // Get elements
     const certificatesContainer = document.querySelector('.certificates-scroll-container');
+    const scrollLeftBtn = document.querySelector('.scroll-left');
+    const scrollRightBtn = document.querySelector('.scroll-right');
     const certificateDots = document.querySelectorAll('.certificate-dots .dot');
-    
-    // Update dots on scroll
-    certificatesContainer.addEventListener('scroll', () => {
-        const scrollPosition = certificatesContainer.scrollLeft;
-        const cardWidth = certificatesContainer.offsetWidth;
-        const activeIndex = Math.round(scrollPosition / cardWidth);
-        
-        certificateDots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === activeIndex);
-        });
-    });
 
-    // Click dot to scroll
-    certificateDots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            const cardWidth = certificatesContainer.offsetWidth;
-            certificatesContainer.scrollTo({
-                left: index * cardWidth,
+    if (certificatesContainer && scrollLeftBtn && scrollRightBtn) {
+        // Function to check if we can scroll
+        function canScroll() {
+            const canScrollLeft = certificatesContainer.scrollLeft > 0;
+            const canScrollRight = certificatesContainer.scrollLeft < (certificatesContainer.scrollWidth - certificatesContainer.clientWidth);
+            
+            scrollLeftBtn.style.opacity = canScrollLeft ? '0.7' : '0.3';
+            scrollRightBtn.style.opacity = canScrollRight ? '0.7' : '0.3';
+            scrollLeftBtn.style.pointerEvents = canScrollLeft ? 'auto' : 'none';
+            scrollRightBtn.style.pointerEvents = canScrollRight ? 'auto' : 'none';
+        }
+
+        // Function to scroll
+        function scroll(direction) {
+            certificatesContainer.scrollBy({
+                left: direction * certificatesContainer.offsetWidth,
                 behavior: 'smooth'
             });
+        }
+
+        // Add click handlers
+        scrollLeftBtn.addEventListener('click', () => {
+            if (scrollLeftBtn.style.pointerEvents !== 'none') {
+                scroll(-1);
+            }
         });
-    });
+
+        scrollRightBtn.addEventListener('click', () => {
+            if (scrollRightBtn.style.pointerEvents !== 'none') {
+                scroll(1);
+            }
+        });
+
+        // Update button states on scroll
+        certificatesContainer.addEventListener('scroll', canScroll);
+
+        // Update button states on resize
+        window.addEventListener('resize', canScroll);
+
+        // Initial button state
+        canScroll();
+
+        // Update dots on scroll
+        certificatesContainer.addEventListener('scroll', () => {
+            const scrollPosition = certificatesContainer.scrollLeft;
+            const cardWidth = certificatesContainer.offsetWidth;
+            const activeIndex = Math.round(scrollPosition / cardWidth);
+            
+            certificateDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeIndex);
+            });
+        });
+    }
 
     // Filter functionality
     const filterBtn = document.querySelector('.filter-btn');
