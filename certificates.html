@@ -34,7 +34,7 @@
                             <h1>my certificates</h1>
                             <div class="filter-container">
                                 <button class="filter-btn" aria-haspopup="true" aria-expanded="false">
-                                    <span>Certificate Type</span>
+                                    <span>choose certificate type</span>
                                     <span class="arrow">></span>
                                 </button>
                                 <div class="filter-menu" role="menu">
@@ -60,6 +60,9 @@
                     <div id="certificates-content" class="certificates-content">
                         <span class="scroll-btn scroll-left">&lt;</span>
                         <div class="certificates-scroll-container">
+                            <div id="noCertificatesMessage" class="no-certificates-message" style="display: none;">
+                                <p>No certificates of this type are available to show.</p>
+                            </div>
                             <div class="certificate-card" data-category="academic" data-certificate-id="bachelor-cs">
                                 <div class="certificate-card-inner">
                                     <div class="certificate-preview">

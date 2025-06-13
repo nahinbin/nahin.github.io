@@ -102,6 +102,18 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Filter certificates
             const cards = document.querySelectorAll('.certificate-card');
+            const noCertificatesMessage = document.getElementById('noCertificatesMessage');
+            const certificateDots = document.querySelector('.certificate-dots');
+            let visibleCards = 0;
+
+            // Hide all cards first
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.display = 'none';
+            });
+
+            // Show matching cards
             cards.forEach(card => {
                 const category = card.dataset.category;
                 if (filter === 'all' || category === filter) {
@@ -111,12 +123,46 @@ document.addEventListener('DOMContentLoaded', function() {
                         card.style.opacity = '1';
                         card.style.transform = 'translateY(0)';
                     }, 50);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
+                    visibleCards++;
+                }
+            });
+
+            // Update dots based on visible cards
+            certificateDots.innerHTML = ''; // Clear existing dots
+            if (visibleCards > 0) {
+                for (let i = 0; i < visibleCards; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'dot' + (i === 0 ? ' active' : '');
+                    certificateDots.appendChild(dot);
+                }
+            }
+
+            // Show/hide no certificates message
+            if (visibleCards === 0) {
+                noCertificatesMessage.style.display = 'flex';
+                setTimeout(() => {
+                    noCertificatesMessage.classList.add('active');
+                }, 50);
+                certificateDots.style.display = 'none'; // Hide dots when no certificates
+            } else {
+                noCertificatesMessage.classList.remove('active');
+                setTimeout(() => {
+                    noCertificatesMessage.style.display = 'none';
+                }, 300);
+                certificateDots.style.display = 'flex'; // Show dots when certificates are visible
+            }
+
+            // Update dots on scroll
+            certificatesContainer.addEventListener('scroll', () => {
+                if (visibleCards > 0) {
+                    const scrollPosition = certificatesContainer.scrollLeft;
+                    const cardWidth = certificatesContainer.offsetWidth;
+                    const activeIndex = Math.round(scrollPosition / cardWidth);
+                    
+                    const dots = certificateDots.querySelectorAll('.dot');
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === activeIndex);
+                    });
                 }
             });
 
