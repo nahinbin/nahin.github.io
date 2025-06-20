@@ -1,0 +1,219 @@
+<html lang="en">
+    <link rel="stylesheet" href="styles.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>nahin in the space</title>
+        <link rel="icon" type="image/png" href="../assets/images/icon.png">
+            <!-- Bootstrap-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/styles.css"/>
+
+
+        
+
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-sm fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand d-flex align-items-center" href="../home/index.html">
+                        <img src="../assets/images/logo.png" alt="nahin's logo" class="logo">
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="container">
+                <!-- First Section with Scroll Hint -->
+                <section id="projects" class="projects">
+                    <div class="container">
+                        <div class="projects-header">
+                            <h1>Take a look at the journey, that made me love to code.</h1>
+                        </div>
+                        <div class="scroll-hint-container">
+                            <a href="#project-list" class="scroll-hint">
+                                <span>⌵</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Project List Section - No Scroll Hint -->
+                <section id="project-list" class="project-list-section">
+                    <div class="container">
+                        <span class="scroll-btn scroll-left">&lt;</span>
+                        <div class="projects-scroll-container">
+                            <div class="project-card">
+                                <div class="project-card-inner">
+                                    <div class="project-preview">
+                                        <img src="../assets/images/personal-website.png" alt="Project 1 Preview">
+                                    </div>
+                                    <div class="project-content">
+                                        <h2 class="project-title">project 1</h2>
+                                        <button type="button" class="project-link toggle-description">View Project</button>
+                                        <div class="project-description">
+                                            <p class="description-text">A minimalistic personal website built with HTML, CSS, and JavaScript.</p>
+                                            <div class="project-buttons">
+                                                <a href="#" class="project-button live-button">View Live</a>
+                                                <a href="#" class="project-button github-button">View on GitHub</a>
+                                            </div>
+                                            <br><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-card-inner">
+                                    <div class="project-preview">
+                                        <img src="../assets/images/listo.png" alt="Project 2 Preview">
+                                    </div>
+                                    <div class="project-content">
+                                        <h2 class="project-title">listo-list chrome extension</h2>
+                                        <button type="button" class="project-link toggle-description">View Project</button>
+                                        <div class="project-description">
+                                            <p class="description-text">A list manager with themes, customizable styles, and auto-saving. <br><br>installation guide: <a href="https://github.com/nahinbin/listo/blob/main/README.md" class="project-button github-button">README</a></p>
+                                            <div class="project-buttons">
+                                                <a href="https://github.com/nahinbin/listo/archive/refs/heads/main.zip" class="project-button live-button">Download Extension</a>
+                                                <a href="https://github.com/nahinbin/listo.git" class="project-button github-button">View on GitHub</a>
+                                            </div>
+                                            <br><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-card">
+                                <div class="project-card-inner">
+                                    <div class="project-preview">
+                                        <img src="../assets/images/logo.png" alt="Project 3 Preview">
+                                    </div>
+                                    <div class="project-content">
+                                        <h2 class="project-title">project 3</h2>
+                                        <button type="button" class="project-link toggle-description">View Project</button>
+                                        <div class="project-description">
+                                            <p class="description-text">Description of project 3 goes here. This will explain what the project does and what technologies were used.</p>
+                                            <div class="project-buttons">
+                                                <a href="#" class="project-button live-button">View Live</a>
+                                                <a href="#" class="project-button github-button">View on GitHub</a>
+                                            </div>
+                                            <br><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <span class="scroll-btn scroll-right">&gt;</span>
+                        <div class="project-dots">
+                            <div class="dot active"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                    <div class="copyright-text">
+                        <p>&copy; 2025 Nahin Bin Monir. All rights <a href="../home/customize.html" style="text-decoration: none; color: inherit;">reserved</a>.</p>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.projects-scroll-container');
+            const dots = document.querySelectorAll('.dot');
+            const scrollLeftBtn = document.querySelector('.scroll-left');
+            const scrollRightBtn = document.querySelector('.scroll-right');
+            
+            // Function to check if we can scroll
+            function canScroll() {
+                const canScrollLeft = container.scrollLeft > 0;
+                const canScrollRight = container.scrollLeft < (container.scrollWidth - container.clientWidth);
+                
+                scrollLeftBtn.style.opacity = canScrollLeft ? '0.7' : '0.3';
+                scrollRightBtn.style.opacity = canScrollRight ? '0.7' : '0.3';
+                scrollLeftBtn.style.pointerEvents = canScrollLeft ? 'auto' : 'none';
+                scrollRightBtn.style.pointerEvents = canScrollRight ? 'auto' : 'none';
+            }
+
+            // Function to scroll
+            function scroll(direction) {
+                container.scrollBy({
+                    left: direction * container.offsetWidth,
+                    behavior: 'smooth'
+                });
+            }
+
+            // Add click handlers for scroll buttons
+            scrollLeftBtn.addEventListener('click', () => {
+                if (scrollLeftBtn.style.pointerEvents !== 'none') {
+                    scroll(-1);
+                }
+            });
+
+            scrollRightBtn.addEventListener('click', () => {
+                if (scrollRightBtn.style.pointerEvents !== 'none') {
+                    scroll(1);
+                }
+            });
+
+            // Update button states on scroll
+            container.addEventListener('scroll', canScroll);
+
+            // Update button states on resize
+            window.addEventListener('resize', canScroll);
+
+            // Initial button state
+            canScroll();
+            
+            // Update dots on scroll
+            container.addEventListener('scroll', () => {
+                const scrollPosition = container.scrollLeft;
+                const cardWidth = container.offsetWidth;
+                const activeIndex = Math.round(scrollPosition / cardWidth);
+                
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === activeIndex);
+                });
+            });
+
+            // Click dot to scroll
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    const cardWidth = container.offsetWidth;
+                    container.scrollTo({
+                        left: index * cardWidth,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Toggle project descriptions
+            const toggleButtons = document.querySelectorAll('.toggle-description');
+            
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const description = button.nextElementSibling;
+                    const cardInner = button.closest('.project-card-inner');
+                    const isOpen = description.classList.contains('active');
+                    
+                    // Close all descriptions and remove active classes
+                    document.querySelectorAll('.project-description').forEach(desc => {
+                        desc.classList.remove('active');
+                        desc.style.maxHeight = null;
+                        desc.closest('.project-card-inner')?.classList.remove('description-active');
+                    });
+                    
+                    // Toggle current description
+                    if (!isOpen) {
+                        description.classList.add('active');
+                        description.style.maxHeight = description.scrollHeight + "px";
+                        cardInner.classList.add('description-active');
+                    }
+                });
+            });
+        });
+    </script>
+</html>

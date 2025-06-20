@@ -183,8 +183,8 @@ document.addEventListener('DOMContentLoaded', function() {
             organization: 'Multimedia University',
             date: '2024 - Present',
             description: 'Currently pursuing a Foundation in Computing with focus on software development and programming.',
-            image: 'assets/images/certificates/foundation.png',
-            previewImage: 'assets/images/certificates/foundation.png',
+            image: '../assets/images/certificates/foundation.png',
+            previewImage: '../assets/images/certificates/foundation.png',
             credentialLink: 'https://www.mmu.edu.my/verify'
         },
         'gdg-build-ai': {
@@ -192,8 +192,8 @@ document.addEventListener('DOMContentLoaded', function() {
             organization: 'Google Developer Groups MMU',
             date: '2025',
             description: 'Participated in a hands-on workshop focused on building AI-powered applications using Google\'s latest AI tools and technologies.',
-            image: 'assets/images/build-with-ai.jpg',
-            previewImage: 'assets/images/build-with-ai.jpg',
+            image: '../assets/images/build-with-ai.jpg',
+            previewImage: '../assets/images/build-with-ai.jpg',
             credentialLink: 'https://gdg.community.dev/events/details/google-gdg-mmu-presents-build-with-ai/'
         }
     };
