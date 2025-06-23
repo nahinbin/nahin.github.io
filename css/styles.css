@@ -1514,3 +1514,147 @@ textarea.form-control {
         width: 30px;
     }
 }
+
+/* Navigation Menu Styles */
+.nav-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 260px; /* Position below the logo */
+    z-index: 1000;
+    opacity: 0;
+    filter: blur(10px);
+    animation: navFadeIn 0.6s ease-out 0.8s forwards;
+}
+
+@keyframes navFadeIn {
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateX(-50%) translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(-50%) translateY(0px);
+    }
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.2rem;
+    align-items: center;
+}
+
+.nav-item {
+    margin: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.55rem;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: white;
+    opacity: 1;
+}
+
+.nav-link.active {
+    color: white;
+    opacity: 1;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    transform: scaleX(1);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-menu {
+        margin-top: 260px;
+    }
+    
+    .nav-list {
+        gap: 1rem;
+    }
+    
+    .nav-link {
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-menu {
+        margin-top: 240px;
+    }
+    
+    .nav-list {
+        gap: 0.8rem;
+    }
+    
+    .nav-link {
+        font-size: 0.55rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu {
+        margin-top: 220px;
+    }
+    
+    .nav-list {
+        gap: 0.6rem;
+    }
+    
+    .nav-link {
+        font-size: 0.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .nav-menu {
+        margin-top: 200px;
+    }
+    
+    .nav-list {
+        gap: 0.5rem;
+    }
+    
+    .nav-link {
+        font-size: 0.45rem;
+    }
+}
