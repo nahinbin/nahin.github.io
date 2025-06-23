@@ -297,3 +297,37 @@ document.addEventListener('DOMContentLoaded', function() {
         certificateImage.classList.toggle('zoomed');
     });
 });
+
+
+  const form = document.getElementById("contactForm");
+  const status = document.getElementById("formStatus");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault(); // Prevent normal form submission
+
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => {
+      data[key] = value;
+    });
+
+    try {
+      const response = await fetch("https://formspree.io/f/xqabyqdp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        status.innerHTML = "<p style='color: green;'>sent</p>";
+        form.reset();
+      } else {
+        status.innerHTML = "<p style='color: red;'>failed</p>";
+      }
+    } catch (error) {
+      status.innerHTML = "<p style='color: red;'>failed</p>";
+    }
+  });
+
