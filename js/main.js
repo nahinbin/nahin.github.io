@@ -1,5 +1,53 @@
 // Certificate Modal and Filter Functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Installation Guide Navigation
+    const prevBtn = document.getElementById('prevStep');
+    const nextBtn = document.getElementById('nextStep');
+    const stepCounter = document.getElementById('stepCounter');
+    const installationSteps = document.getElementById('installationSteps');
+    const steps = document.querySelectorAll('.step');
+    
+    if (prevBtn && nextBtn && installationSteps) {
+        let currentStep = 1;
+        const totalSteps = steps.length;
+        
+        function updateStep(stepNumber) {
+            // Update active step
+            steps.forEach((step, index) => {
+                step.classList.toggle('active', index + 1 === stepNumber);
+            });
+            
+            // Update navigation buttons
+            prevBtn.disabled = stepNumber === 1;
+            nextBtn.disabled = stepNumber === totalSteps;
+            
+            // Update step counter
+            stepCounter.textContent = `Step ${stepNumber} of ${totalSteps}`;
+            
+            // Update transform for smooth scrolling
+            const translateX = -(stepNumber - 1) * 100;
+            installationSteps.style.transform = `translateX(${translateX}%)`;
+        }
+        
+        // Event listeners for navigation buttons
+        prevBtn.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                updateStep(currentStep);
+            }
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateStep(currentStep);
+            }
+        });
+        
+        // Initialize
+        updateStep(1);
+    }
+
     // Get elements
     const certificatesContainer = document.querySelector('.certificates-scroll-container');
     const scrollLeftBtn = document.querySelector('.scroll-left');
