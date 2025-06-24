@@ -1,3 +1,6 @@
+/* =========================
+   1. Base/Reset/Global Styles
+   ========================= */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 * {
@@ -26,6 +29,34 @@ p {
     letter-spacing: -0.01em;
 }
 
+/* =========================
+   2. Header & Navigation
+   ========================= */
+.navbar {
+    background-color: transparent;
+}
+
+.nav-button {
+    color: white;
+    border-radius: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.logo {
+    height: 20px;
+    opacity: 0.92;
+}
+
+.navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 120px;  /* Increased from 10px to 20px to move logo further down */
+}
+
+/* =========================
+   3. Main Layout Containers
+   ========================= */
 .container {
     position: relative;
     scroll-snap-type: y mandatory;
@@ -48,6 +79,9 @@ section {
     overflow: hidden;
 }
 
+/* =========================
+   4. Intro Section
+   ========================= */
 .title {
     margin-top: 45vh;
 }
@@ -83,16 +117,9 @@ section {
     color: rgba(255, 255, 255, 0.9);
 }
 
-.navbar {
-    background-color: transparent;
-}
-
-.nav-button {
-    color: white;
-    border-radius: 0;
-    font-family: 'Courier New', Courier, monospace;
-}
-
+/* =========================
+   5. Social Links
+   ========================= */
 .socialLinks {
     display: flex; /* Use Flexbox for better layout control */
     justify-content: center; /* Centers items horizontally */
@@ -100,6 +127,9 @@ section {
     margin-top: 5px; /* Adds spacing above the icons (optional) */
 }
 
+/* =========================
+   6. Projects Section
+   ========================= */
 .projectsBox {
     height: 75%;
     width: 75%;
@@ -122,18 +152,6 @@ section {
     background-color: white;
     color: black;
     transition: 0.5s;
-}
-
-.logo {
-    height: 20px;
-    opacity: 0.86;  /* Added opacity to make logo 86% visible */
-}
-
-.navbar-brand {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-top: 120px;  /* Increased from 10px to 20px to move logo further down */
 }
 
 .explore-grid {
@@ -160,54 +178,6 @@ section {
     color: aliceblue;
 }
 
-
-/* Footer */
-.copyright-text {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-size: 0.7rem;
-    opacity: 0.7;
-}
-
-.copyright-text p {
-    margin: 0;
-    padding: 0;
-    font-size: 0.7rem;
-}
-
-.copyright-text a:hover {
-    opacity: 0.6;
-}
-
-.explore {
-    position: relative;
-}
-
-
-.project-list-section {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-}
-
-.project-list-section .container {
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    margin: 0;
-    gap: 40px;
-}
-
 .down-arrow {
     position: absolute;
     left: 0;
@@ -219,7 +189,6 @@ section {
     gap: 10px;
 }
 
-/* Scroll Hint Styles */
 .scroll-hint-container {
     position: relative;
     height: 100px;
@@ -246,9 +215,25 @@ section {
     transform: translateX(-50%) translateY(3px);
 }
 
-/* Project List Section */
 .project-list-section {
     position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.project-list-section .container {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    gap: 40px;
 }
 
 .aboutMe {
@@ -258,7 +243,6 @@ section {
     align-items: center;
 }
 
-/* Project Cards Horizontal Scroll */
 .projects-scroll-container {
     display: flex;
     overflow-x: auto;
@@ -469,478 +453,9 @@ section {
     transform: translateY(-2px);
 }
 
-/* Contact Info Styles */
-.contactinfo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem;
-    min-height: 100vh; /* Make it take full viewport height */
-    margin: 0; /* Remove any default margins */
-    position: relative; /* For proper positioning */
-    top: 0; /* Reset any top positioning */
-}
-
-.contactinfo .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    max-width: 600px; /* Limit the width for better readability */
-    margin: 0 auto; /* Center horizontally */
-}
-
-.socials-header {
-    margin-bottom: 2rem;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    text-decoration: none;
-    margin-bottom: 1.5rem;
-    padding: 0.8rem 1.2rem;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    background-color: rgba(255, 255, 255, 0.03);
-    transition: all 0.2s ease;
-}
-
-.contact-item:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.contact-icon {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-}
-
-.contact-label {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.contact-value {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 500;
-}
-
-.social-links {
-    display: flex;
-    gap: 1.2rem;
-    margin-top: 2rem;
-    justify-content: center;
-}
-
-.social-link {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.6);
-    transition: all 0.2s ease;
-    padding: 0.5rem;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.social-link:hover {
-    color: white;
-    transform: translateY(-2px);
-}
-
-/* Contact Form Styles */
-.contact {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-}
-
-.contact-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-}
-
-.contact-description {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.7);
-    max-width: 500px;
-}
-
-.contact-form-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 280px;
-}
-
-.contact-form-card {
-    width: 100%;
-    max-width: 400px;
-    padding: 1rem;
-}
-
-.card-header {
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-.card-header i {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 0.5rem;
-}
-
-.card-header h2 {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.form-group {
-    width: 100%;
-    max-width: 300px;
-    margin-bottom: 0.8rem;
-    text-align: center;
-}
-
-.form-label {
-    display: block;
-    margin-bottom: 0.2rem;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.form-control {
-    width: 100%;
-    padding: 0.4rem;
-    background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    font-size: 0.85rem;
-    transition: all 0.2s ease;
-    border-radius: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    line-height: 1.2;
-    text-align: center;
-}
-
-.form-control::placeholder {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.4);
-}
-
-textarea.form-control {
-    text-align: left;
-    min-height: 60px;
-    resize: vertical;
-}
-
-.submit-btn {
-    width: 100%;
-    max-width: 300px;
-    padding: 0.4rem;
-    background-color: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: white;
-    font-size: 0.85rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    margin-top: 0.4rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    border-radius: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    line-height: 1.2;
-}
-
-.submit-btn:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    transform: translateY(-1px);
-    border-color: rgba(255, 255, 255, 0.3);
-}
-
-.submit-btn:focus {
-    outline: none;
-    box-shadow: none;
-}
-
-.fade-in {
-    animation: fadeIn 0.5s ease-in;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Certificate Filter Styles */
-.certificates-filter {
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    position: relative;
-}
-
-.filter-dropdown {
-    position: relative;
-    min-width: 200px;
-}
-
-.filter-toggle {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.8);
-    padding: 12px 24px;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    width: 100%;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.filter-toggle:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.toggle-icon {
-    font-size: 0.8em;
-    transition: transform 0.2s ease;
-}
-
-.filter-dropdown.active .toggle-icon {
-    transform: rotate(180deg);
-}
-
-.filter-options {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: none;
-    margin-top: 4px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.2s ease;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.filter-dropdown.active .filter-options {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.filter-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    padding: 6px 12px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    min-width: 120px;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 0;
-    transition: all 0.2s ease;
-}
-
-.filter-btn .arrow {
-    font-size: 0.8em;
-    margin-left: 8px;
-    transition: transform 0.2s ease;
-}
-
-.filter-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.filter-btn.active {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    font-weight: 500;
-}
-
-/* Add JavaScript to handle the toggle */
-@media (max-width: 768px) {
-    .filter-dropdown {
-        width: 100%;
-        max-width: 300px;
-    }
-}
-
-@media (max-width: 480px) {
-    .certificates-filter {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-    }
-    
-    .filter-btn {
-        width: 100%;
-        min-width: unset;
-    }
-}
-
-/* Filter Container and Menu Styles */
-.filter-container {
-    position: relative;
-    display: inline-block;
-    margin-top: 1rem;
-}
-
-.filter-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    padding: 6px 12px;
-    font-size: 0.85rem;
-    cursor: pointer;
-    min-width: 120px;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 0;
-    transition: all 0.2s ease;
-}
-
-.filter-btn::after {
-    font-size: 0.8em;
-    margin-left: 8px;
-    transition: transform 0.2s ease;
-}
-
-.filter-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.filter-menu {
-    position: absolute;
-    top: calc(100% + 4px);
-    left: 0;
-    background: rgba(0, 0, 0, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 0;
-    padding: 2px;
-    min-width: 120px;
-    display: none;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-}
-
-.filter-menu.active {
-    display: block;
-    animation: fadeIn 0.2s ease;
-}
-
-.filter-menu button {
-    display: block;
-    width: 100%;
-    padding: 6px 12px;
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.8);
-    text-align: left;
-    cursor: pointer;
-    font-size: 0.85rem;
-    border-radius: 0;
-    transition: all 0.2s ease;
-}
-
-.filter-menu button:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-}
-
-.filter-menu button.active {
-    background: rgba(255, 255, 255, 0.15);
-    color: white;
-    font-weight: 500;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-4px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .filter-container {
-        width: 100%;
-        max-width: 300px;
-        margin: 1rem auto;
-    }
-
-    .filter-btn {
-        width: 100%;
-    }
-
-    .filter-menu {
-        width: 100%;
-    }
-}
-
-/* Certificate Scroll Container */
+/* =========================
+   7. Certificates Section
+   ========================= */
 .certificates {
     position: relative;
     height: 100vh;
@@ -1191,36 +706,6 @@ textarea.form-control {
     color: #4caf50;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .certificates-scroll-container {
-        width: 90%;
-        height: 350px;
-    }
-    
-    .certificate-card {
-        padding: 1.25rem;
-    }
-}
-
-/* Animation for fade-in */
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 0.5s ease forwards;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Certificate Modal */
 .certificate-modal {
     display: none;
     position: fixed;
@@ -1303,6 +788,8 @@ textarea.form-control {
     margin: 1rem 0;
     font-size: 1.5rem;
     color: var(--text-primary);
+    text-align: center;
+    width: 100%;
 }
 
 .modal-body {
@@ -1352,94 +839,6 @@ textarea.form-control {
     background: var(--accent-hover);
 }
 
-/* Filter Menu */
-.filter-menu {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 0;
-    padding: 0.5rem;
-    margin-top: 0.5rem;
-    display: none;
-    z-index: 100;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.filter-menu.active {
-    display: block;
-}
-
-.filter-menu button {
-    display: block;
-    width: 100%;
-    padding: 0.5rem 1rem;
-    text-align: left;
-    background: none;
-    border: none;
-    color: var(--text-primary);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    border-radius: 0;
-}
-
-.filter-menu button:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.filter-menu button.active {
-    background: var(--accent-color);
-    color: var(--text-primary);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .modal-content {
-        width: 95%;
-        max-height: 95vh;
-    }
-
-    .modal-header {
-        padding: 0.75rem;
-    }
-
-    .modal-title {
-        font-size: 1.25rem;
-    }
-
-    .modal-body {
-        padding: 1rem;
-    }
-
-    .modal-image {
-        max-height: 200px;
-    }
-
-    .modal-image.zoomed {
-        transform: scale(1.2);
-    }
-}
-
-/* Scrollbar Styles */
-.modal-body::-webkit-scrollbar {
-    width: 8px;
-}
-
-.modal-body::-webkit-scrollbar-track {
-    background: var(--card-bg);
-}
-
-.modal-body::-webkit-scrollbar-thumb {
-    background: var(--border-color);
-    border-radius: 0;
-}
-
-.modal-body::-webkit-scrollbar-thumb:hover {
-    background: var(--text-secondary);
-}
-
-/* Certificate Dots Navigation */
 .certificate-dots {
     display: flex;
     justify-content: center;
@@ -1467,7 +866,6 @@ textarea.form-control {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* No Certificates Message */
 .no-certificates-message {
     text-align: center;
     padding: 2rem;
@@ -1499,23 +897,443 @@ textarea.form-control {
     max-width: 80%;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .certificate-dots {
-        margin-top: 15px;
-    }
+/* =========================
+   8. Certificate Filter Styles
+   ========================= */
+.certificates-filter {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    position: relative;
+}
 
-    .certificate-dots .dot {
-        width: 6px;
-        height: 6px;
-    }
+.filter-dropdown {
+    position: relative;
+    min-width: 200px;
+}
 
-    .certificate-dots .dot.active {
-        width: 30px;
+.filter-toggle {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.toggle-icon {
+    font-size: 0.8em;
+    transition: transform 0.2s ease;
+}
+
+.filter-dropdown.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.filter-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: none;
+    margin-top: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.filter-dropdown.active .filter-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.filter-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 6px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    min-width: 120px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0;
+    transition: all 0.2s ease;
+}
+
+.filter-btn .arrow {
+    font-size: 0.8em;
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.filter-btn.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-weight: 500;
+}
+
+.filter-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+.filter-btn::after {
+    font-size: 0.8em;
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+}
+
+.filter-menu {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    padding: 2px;
+    min-width: 120px;
+    display: none;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.filter-menu.active {
+    display: block;
+    animation: fadeIn 0.2s ease;
+}
+
+.filter-menu button {
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.85rem;
+    border-radius: 0;
+    transition: all 0.2s ease;
+}
+
+.filter-menu button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.filter-menu button.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-weight: 500;
+}
+
+/* =========================
+   9. Contact Section
+   ========================= */
+.contactinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    min-height: 100vh; /* Make it take full viewport height */
+    margin: 0; /* Remove any default margins */
+    position: relative; /* For proper positioning */
+    top: 0; /* Reset any top positioning */
+}
+
+.contactinfo .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    max-width: 600px; /* Limit the width for better readability */
+    margin: 0 auto; /* Center horizontally */
+}
+
+.socials-header {
+    margin-bottom: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    margin-bottom: 1.5rem;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.03);
+    transition: all 0.2s ease;
+}
+
+.contact-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.contact-icon {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.contact-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.contact-value {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.social-link {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition: all 0.2s ease;
+    padding: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-link:hover {
+    color: white;
+    transform: translateY(-2px);
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.contact-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.contact-description {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 500px;
+}
+
+.contact-form-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 280px;
+}
+
+.contact-form-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 1rem;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-header i {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0.5rem;
+}
+
+.card-header h2 {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.form-group {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 0.8rem;
+    text-align: center;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.2rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.4rem;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.form-control::placeholder {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+textarea.form-control {
+    text-align: left;
+    min-height: 60px;
+    resize: vertical;
+}
+
+.submit-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.4rem;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    line-height: 1.2;
+}
+
+.submit-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    transform: translateY(-1px);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.submit-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* =========================
+   10. Footer
+   ========================= */
+.copyright-text {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
+.copyright-text p {
+    margin: 0;
+    padding: 0;
+    font-size: 0.7rem;
+}
+
+.copyright-text a:hover {
+    opacity: 0.6;
+}
+
+/* =========================
+   11. Animations & Utilities
+   ========================= */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Installation Guide Styles */
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+/* =========================
+   12. Installation Guide Styles
+   ========================= */
 .guide-to-installation {
     background-color: black;
     padding: 100px 0 40px 0;
@@ -1721,38 +1539,87 @@ textarea.form-control {
     text-decoration: underline;
 }
 
-/* Responsive Design for Installation Guide */
+/* =========================
+   13. Responsive Media Queries
+   ========================= */
 @media (max-width: 768px) {
+    .filter-dropdown {
+        width: 100%;
+        max-width: 300px;
+    }
+    .filter-container {
+        width: 100%;
+        max-width: 300px;
+        margin: 1rem auto;
+    }
+    .filter-btn {
+        width: 100%;
+    }
+    .filter-menu {
+        width: 100%;
+    }
+    .certificates-scroll-container {
+        width: 90%;
+        height: 350px;
+    }
+    .certificate-card {
+        padding: 1.25rem;
+    }
+    .certificate-dots {
+        margin-top: 15px;
+    }
+    .certificate-dots .dot {
+        width: 6px;
+        height: 6px;
+    }
+    .certificate-dots .dot.active {
+        width: 30px;
+    }
+    .modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+    .modal-header {
+        padding: 0.75rem;
+    }
+    .modal-title {
+        font-size: 1.25rem;
+        text-align: center;
+        width: 100%;
+    }
+    .modal-body {
+        padding: 1rem;
+    }
+    .modal-image {
+        max-height: 200px;
+    }
+    .modal-image.zoomed {
+        transform: scale(1.2);
+    }
     .guide-to-installation {
         padding: 80px 15px 30px 15px;
     }
-    
     .installation-header h2 {
         font-size: 1.4rem;
     }
-    
     .installation-navigation {
         gap: 15px;
         margin-bottom: 25px;
     }
-    
     .nav-btn {
         padding: 6px 12px;
         font-size: 0.75rem;
     }
-    
     .step {
         flex-direction: column;
         text-align: center;
         padding: 15px 12px;
     }
-    
     .step-number {
         margin-right: 0;
         margin-bottom: 12px;
         align-self: center;
     }
-    
     .installation-steps-container,
     .installation-notes,
     .troubleshooting {
@@ -1761,24 +1628,99 @@ textarea.form-control {
 }
 
 @media (max-width: 480px) {
+    .certificates-filter {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+    .filter-btn {
+        width: 100%;
+        min-width: unset;
+    }
     .installation-header h2 {
         font-size: 1.2rem;
     }
-    
     .step-content h3 {
         font-size: 0.9rem;
     }
-    
     .step-content p {
         font-size: 0.75rem;
     }
-    
     .installation-navigation {
         flex-direction: column;
         gap: 10px;
     }
-    
     .step-counter {
         order: -1;
+    }
+}
+
+/* =========================
+   14. Scrollbar Styles (Modal)
+   ========================= */
+.modal-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: var(--card-bg);
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 0;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Redesigned certificate modal styles */
+.redesigned-modal .modal-flex {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+}
+.modal-image-col {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.modal-image-col .modal-image {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+}
+.modal-details-col {
+    flex: 2 1 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.modal-details-col .modal-title {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    text-align: left;
+    color: var(--text-primary, white);
+}
+@media (max-width: 900px) {
+    .redesigned-modal .modal-flex {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.2rem 0.5rem;
+    }
+    .modal-image-col, .modal-details-col {
+        width: 100%;
+        flex: unset;
+    }
+    .modal-details-col .modal-title {
+        font-size: 1.4rem;
+        text-align: center;
     }
 }

@@ -77,7 +77,8 @@
                                         <div class="project-description">
                                             <p class="description-text">A minimalistic list manager with themes, customizable styles, and auto-saving.</p>
                                             <div class="project-buttons">
-                                                <a href="listo" class="project-button live-button">Download Page</a>
+                                                <a href="https://github.com/nahinbin/listo/archive/refs/heads/main.zip" class="project-button live-button" id="downloadPageBtn" target="_blank">Download Page</a>
+                                                <a href="listo.html#guide-to-installation" class="project-button live-button" id="guideBtn" style="display:none;" target="_blank">Guide to Download</a>
                                                 <a href="https://github.com/nahinbin/listo.git" class="project-button github-button">View on GitHub</a>
                                             </div>
                                             <br><br>
@@ -118,7 +119,6 @@
                 </section>
             </div>
         </main>
-    </body>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const container = document.querySelector('.projects-scroll-container');
@@ -216,4 +216,20 @@
             });
         });
     </script>
+    <script>
+        // Download Page button swap to Guide to Download
+        document.addEventListener('DOMContentLoaded', function() {
+            const downloadBtn = document.getElementById('downloadPageBtn');
+            const guideBtn = document.getElementById('guideBtn');
+            if (downloadBtn && guideBtn) {
+                downloadBtn.addEventListener('click', function() {
+                    setTimeout(function() {
+                        downloadBtn.style.display = 'none';
+                        guideBtn.style.display = 'inline-block';
+                    }, 100);
+                });
+            }
+        });
+    </script>
+</body>
 </html>

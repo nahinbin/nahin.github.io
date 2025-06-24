@@ -321,13 +321,34 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
       if (response.ok) {
-        status.innerHTML = "<p style='color: green;'>sent</p>";
+        status.innerHTML = "<p style='color: white;'>sent</p>";
         form.reset();
+        setTimeout(() => {
+          status.classList.add('fade-out');
+          setTimeout(() => {
+            status.innerHTML = '';
+            status.classList.remove('fade-out');
+          }, 700);
+        }, 2500);
       } else {
         status.innerHTML = "<p style='color: red;'>failed</p>";
+        setTimeout(() => {
+          status.classList.add('fade-out');
+          setTimeout(() => {
+            status.innerHTML = '';
+            status.classList.remove('fade-out');
+          }, 700);
+        }, 2500);
       }
     } catch (error) {
       status.innerHTML = "<p style='color: red;'>failed</p>";
+      setTimeout(() => {
+        status.classList.add('fade-out');
+        setTimeout(() => {
+          status.innerHTML = '';
+          status.classList.remove('fade-out');
+        }, 700);
+      }, 2500);
     }
   });
 
