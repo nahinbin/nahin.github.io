@@ -67,6 +67,16 @@
             width: 100%;
         }
 
+        .nameheader h1 {
+            text-shadow: 
+                0 0 10px rgba(0, 0, 0, 0.9),
+                0 0 20px rgba(0, 0, 0, 0.8),
+                0 0 30px rgba(0, 0, 0, 0.7),
+                0 0 40px rgba(0, 0, 0, 0.6),
+                0 0 50px rgba(0, 0, 0, 0.5),
+                0 0 60px rgba(0, 0, 0, 0.4);
+        }
+
         .description {
             text-align: center;
             margin: 0 auto;
@@ -79,6 +89,12 @@
             font-size: 1rem;
             line-height: 1.5;
             color: rgba(255, 255, 255, 0.9);
+            text-shadow: 
+                0 0 8px rgba(0, 0, 0, 0.8),
+                0 0 16px rgba(0, 0, 0, 0.7),
+                0 0 24px rgba(0, 0, 0, 0.6),
+                0 0 32px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(0, 0, 0, 0.4);
         }
 
         .navbar {
@@ -93,11 +109,33 @@
         }
 
         .aboutMe {
-            background-color: black;
+            background-image: url('assets/images/listo-background.png');
+            background-size: contain;
+            background-position: top center;
+            background-repeat: no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+        }
+
+        /* Responsive background sizing */
+        @media (min-width: 768px) {
+            .aboutMe {
+                background-size: 80% auto;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .aboutMe {
+                background-size: 60% auto;
+            }
+        }
+
+        @media (min-width: 1440px) {
+            .aboutMe {
+                background-size: 50% auto;
+            }
         }
 
         .project-buttons {
@@ -134,7 +172,6 @@
 
         /* Installation Guide Styles */
         .guide-to-installation {
-            background-color: black;
             padding: 100px 0 40px 0;
             min-height: 100vh;
             display: flex;
@@ -363,7 +400,7 @@
         <nav class="navbar navbar-expand-sm fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center" href="#">
-                    <h1 style="color: white; font-size: 2rem; font-weight: 600;">listo</h1>
+                    <h1 style="color: white; font-size: 2rem; font-weight: 600;"></h1>
                 </a>
             </div>
         </nav>
