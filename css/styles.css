@@ -1723,4 +1723,133 @@ textarea.form-control {
         font-size: 1.4rem;
         text-align: center;
     }
+    
+    /* Image Gallery Mobile Styles */
+    .image-gallery-container {
+        max-width: 100%;
+    }
+    
+    .image-gallery {
+        height: 250px;
+    }
+    
+    .image-gallery-nav {
+        margin-top: 0.75rem;
+        gap: 0.75rem;
+    }
+    
+    .gallery-nav-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+        min-width: 35px;
+    }
+    
+    .image-indicators {
+        gap: 0.4rem;
+    }
+    
+    .image-indicator {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+/* Image Gallery Styles */
+.image-gallery-container {
+    width: 100%;
+    max-width: 320px;
+    position: relative;
+}
+
+.image-gallery {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+}
+
+.image-gallery .modal-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    cursor: zoom-in;
+}
+
+.image-gallery .modal-image.active {
+    opacity: 1;
+}
+
+.image-gallery .modal-image.zoomed {
+    transform: scale(1.5);
+    cursor: zoom-out;
+}
+
+.image-gallery-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.gallery-nav-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    min-width: 40px;
+}
+
+.gallery-nav-btn:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.gallery-nav-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.image-indicators {
+    display: flex;
+    gap: 0.5rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.image-indicator {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.image-indicator.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+.image-indicator:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.modal-image-col .modal-image {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
 }

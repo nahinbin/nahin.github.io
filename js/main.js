@@ -231,8 +231,20 @@ document.addEventListener('DOMContentLoaded', function() {
             organization: 'Multimedia University',
             date: '2024 - Present',
             description: 'Currently pursuing a Foundation in Computing with focus on software development and programming.',
-            image: 'assets/images/certificates/foundation.png',
-            previewImage: 'assets/images/certificates/foundation.png',
+            images: [
+                {
+                    src: 'assets/images/build-with-ai.jpg',
+                    alt: 'Foundation Certificate Front'
+                },
+                {
+                    src: 'assets/images/logo.png',
+                    alt: 'Foundation Certificate Back'
+                },
+                {
+                    src: 'assets/images/icon.png',
+                    alt: 'Foundation Certificate Details'
+                }
+            ],
             credentialLink: 'https://www.mmu.edu.my/verify'
         },
         'gdg-build-ai': {
@@ -240,11 +252,113 @@ document.addEventListener('DOMContentLoaded', function() {
             organization: 'Google Developer Groups MMU',
             date: '2025',
             description: 'Participated in a hands-on workshop focused on building AI-powered applications using Google\'s latest AI tools and technologies.',
-            image: 'assets/images/build-with-ai.jpg',
-            previewImage: 'assets/images/build-with-ai.jpg',
+            images: [
+                {
+                    src: 'assets/images/build-with-ai.jpg',
+                    alt: 'Build with AI Certificate'
+                },
+                {
+                    src: 'assets/images/listo.png',
+                    alt: 'Build with AI Workshop Details'
+                },
+                {
+                    src: 'assets/images/personal-website.png',
+                    alt: 'Build with AI Project Showcase'
+                }
+            ],
             credentialLink: 'https://gdg.community.dev/events/details/google-gdg-mmu-presents-build-with-ai/'
         }
     };
+
+    // Gallery functionality
+    let currentImageIndex = 0;
+    let currentImages = [];
+
+    function createImageGallery(images) {
+        const gallery = document.querySelector('.image-gallery');
+        const indicators = document.querySelector('.image-indicators');
+        
+        // Clear existing content
+        gallery.innerHTML = '';
+        indicators.innerHTML = '';
+        
+        if (!images || images.length === 0) {
+            // Fallback to single image if no images provided
+            const fallbackImg = document.createElement('img');
+            fallbackImg.src = 'assets/images/build-with-ai.jpg';
+            fallbackImg.alt = 'Certificate Preview';
+            fallbackImg.className = 'modal-image active';
+            gallery.appendChild(fallbackImg);
+            return;
+        }
+        
+        // Create image elements
+        images.forEach((image, index) => {
+            const img = document.createElement('img');
+            img.src = image.src;
+            img.alt = image.alt;
+            img.className = `modal-image ${index === 0 ? 'active' : ''}`;
+            gallery.appendChild(img);
+            
+            // Create indicator
+            const indicator = document.createElement('div');
+            indicator.className = `image-indicator ${index === 0 ? 'active' : ''}`;
+            indicator.addEventListener('click', () => showImage(index));
+            indicators.appendChild(indicator);
+        });
+        
+        currentImages = images;
+        currentImageIndex = 0;
+        updateGalleryNavigation();
+    }
+
+    function showImage(index) {
+        const images = document.querySelectorAll('.image-gallery .modal-image');
+        const indicators = document.querySelectorAll('.image-indicator');
+        
+        if (index < 0 || index >= images.length) return;
+        
+        // Update active image
+        images.forEach((img, i) => {
+            img.classList.toggle('active', i === index);
+        });
+        
+        // Update active indicator
+        indicators.forEach((indicator, i) => {
+            indicator.classList.toggle('active', i === index);
+        });
+        
+        currentImageIndex = index;
+        updateGalleryNavigation();
+    }
+
+    function nextImage() {
+        const images = document.querySelectorAll('.image-gallery .modal-image');
+        const nextIndex = (currentImageIndex + 1) % images.length;
+        showImage(nextIndex);
+    }
+
+    function prevImage() {
+        const images = document.querySelectorAll('.image-gallery .modal-image');
+        const prevIndex = currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+        showImage(prevIndex);
+    }
+
+    function updateGalleryNavigation() {
+        const images = document.querySelectorAll('.image-gallery .modal-image');
+        const prevBtn = document.querySelector('.gallery-nav-btn.prev-btn');
+        const nextBtn = document.querySelector('.gallery-nav-btn.next-btn');
+        
+        if (images.length <= 1) {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            document.querySelector('.image-indicators').style.display = 'none';
+        } else {
+            prevBtn.style.display = 'block';
+            nextBtn.style.display = 'block';
+            document.querySelector('.image-indicators').style.display = 'flex';
+        }
+    }
 
     function openModal(certificateId) {
         const data = certificateData[certificateId];
@@ -256,7 +370,9 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.querySelector('#modalDate').textContent = data.date;
         modal.querySelector('#modalDescription').textContent = data.description;
         modal.querySelector('#modalCredentialLink').href = data.credentialLink;
-        certificateImage.src = data.previewImage;
+        
+        // Create image gallery
+        createImageGallery(data.images);
 
         // Show modal
         modal.classList.add('active');
@@ -292,9 +408,31 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Image zoom functionality
-    certificateImage.addEventListener('click', () => {
-        certificateImage.classList.toggle('zoomed');
+    // Gallery navigation event listeners
+    const galleryPrevBtn = document.querySelector('.gallery-nav-btn.prev-btn');
+    const galleryNextBtn = document.querySelector('.gallery-nav-btn.next-btn');
+    
+    if (galleryPrevBtn && galleryNextBtn) {
+        galleryPrevBtn.addEventListener('click', prevImage);
+        galleryNextBtn.addEventListener('click', nextImage);
+    }
+
+    // Keyboard navigation for gallery
+    document.addEventListener('keydown', (e) => {
+        if (modal.classList.contains('active')) {
+            if (e.key === 'ArrowLeft') {
+                prevImage();
+            } else if (e.key === 'ArrowRight') {
+                nextImage();
+            }
+        }
+    });
+
+    // Image zoom functionality for gallery images
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal-image') && e.target.classList.contains('active')) {
+            e.target.classList.toggle('zoomed');
+        }
     });
 });
 

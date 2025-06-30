@@ -104,7 +104,19 @@
                         <button class="modal-close" aria-label="Close modal">&times;</button>
                         <div class="modal-flex">
                             <div class="modal-image-col">
-                                <img id="modalCertificateImage" src="" alt="Certificate Preview" class="modal-image">
+                                <div class="image-gallery-container">
+                                    <div class="image-gallery">
+                                        <img id="modalCertificateImage" src="" alt="Certificate Preview" class="modal-image active">
+                                        <!-- Additional images will be dynamically added here -->
+                                    </div>
+                                    <div class="image-gallery-nav">
+                                        <button class="gallery-nav-btn prev-btn" aria-label="Previous image">&lt;</button>
+                                        <div class="image-indicators">
+                                            <!-- Image indicators will be dynamically added here -->
+                                        </div>
+                                        <button class="gallery-nav-btn next-btn" aria-label="Next image">&gt;</button>
+                                    </div>
+                                </div>
                             </div>
                             <div class="modal-details-col">
                                 <h2 id="modalTitle" class="modal-title"></h2>
