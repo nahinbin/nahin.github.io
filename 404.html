@@ -35,20 +35,41 @@
             <section class="error-section">
                 <div class="container">
                     <div class="error-content">
-                        <div class="error-number">
-                            <h1>404</h1>
+                        <div class="error-visual">
+                            <div class="flip-container">
+                                <div class="flip-char" data-front="" data-back="e">
+                                    <div class="flip-front"></div>
+                                    <div class="flip-back">e</div>
+                                </div>
+                                <div class="flip-char" data-front="4" data-back="r">
+                                    <div class="flip-front">4</div>
+                                    <div class="flip-back">r</div>
+                                </div>
+                                <div class="flip-char" data-front="0" data-back="r">
+                                    <div class="flip-front">0</div>
+                                    <div class="flip-back">r</div>
+                                </div>
+                                <div class="flip-char" data-front="4" data-back="o">
+                                    <div class="flip-front">4</div>
+                                    <div class="flip-back">o</div>
+                                </div>
+                                <div class="flip-char" data-front="" data-back="r">
+                                    <div class="flip-front"></div>
+                                    <div class="flip-back">r</div>
+                                </div>
+                            </div>
                         </div>
                         <div class="error-message">
-                            <h2>page not found</h2>
+                            <h2>couldn't find the page in this space</h2>
                             <p>
                                 the page you're looking for seems to have wandered off into space. 
                                 maybe it's exploring the cosmos or just taking a break from the digital world.
                             </p>
                         </div>
                         <div class="error-actions">
-                            <a href="index.html" class="error-btn primary-btn">
+                            <a href="index.html" class="error-btn sharp-btn">
                                 <i class="fas fa-rocket"></i>
-                                back to home
+                                <span>back to home</span>
                             </a>
                         </div>
                     </div>
@@ -77,17 +98,81 @@
             width: 100%;
         }
 
-        .error-number {
-            margin-bottom: 2rem;
+        .error-visual {
+            position: relative;
+            margin-bottom: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .error-number h1 {
-            font-size: 8rem;
+        .flip-container {
+            display: flex;
+            gap: 12px;
+            cursor: pointer;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .flip-char {
+            position: relative;
+            width: 100px;
+            height: 140px;
+            perspective: 600px;
+        }
+
+        .flip-front, .flip-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+            font-size: 5rem;
             font-weight: 700;
-            color: rgba(255, 255, 255, 0.1);
-            margin: 0;
-            line-height: 1;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            color: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0;
+            backface-visibility: hidden;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        }
+
+        .flip-back {
+            transform: rotateX(180deg);
+        }
+
+        /* --- Flip on hover --- */
+        .flip-container:hover .flip-char:nth-child(1) .flip-front { transform: rotateX(-180deg); }
+        .flip-container:hover .flip-char:nth-child(1) .flip-back { transform: rotateX(0deg); }
+        .flip-container:hover .flip-char:nth-child(2) .flip-front { transform: rotateX(-180deg); transition-delay: 0.1s; }
+        .flip-container:hover .flip-char:nth-child(2) .flip-back { transform: rotateX(0deg); transition-delay: 0.1s; }
+        .flip-container:hover .flip-char:nth-child(3) .flip-front { transform: rotateX(-180deg); transition-delay: 0.2s; }
+        .flip-container:hover .flip-char:nth-child(3) .flip-back { transform: rotateX(0deg); transition-delay: 0.2s; }
+        .flip-container:hover .flip-char:nth-child(4) .flip-front { transform: rotateX(-180deg); transition-delay: 0.3s; }
+        .flip-container:hover .flip-char:nth-child(4) .flip-back { transform: rotateX(0deg); transition-delay: 0.3s; }
+        .flip-container:hover .flip-char:nth-child(5) .flip-front { transform: rotateX(-180deg); transition-delay: 0.4s; }
+        .flip-container:hover .flip-char:nth-child(5) .flip-back { transform: rotateX(0deg); transition-delay: 0.4s; }
+
+        /* --- Flip on click (permanent) --- */
+        .flip-container.permanent-flip .flip-char:nth-child(1) .flip-front { transform: rotateX(-180deg); }
+        .flip-container.permanent-flip .flip-char:nth-child(1) .flip-back { transform: rotateX(0deg); }
+        .flip-container.permanent-flip .flip-char:nth-child(2) .flip-front { transform: rotateX(-180deg); transition-delay: 0.1s; }
+        .flip-container.permanent-flip .flip-char:nth-child(2) .flip-back { transform: rotateX(0deg); transition-delay: 0.1s; }
+        .flip-container.permanent-flip .flip-char:nth-child(3) .flip-front { transform: rotateX(-180deg); transition-delay: 0.2s; }
+        .flip-container.permanent-flip .flip-char:nth-child(3) .flip-back { transform: rotateX(0deg); transition-delay: 0.2s; }
+        .flip-container.permanent-flip .flip-char:nth-child(4) .flip-front { transform: rotateX(-180deg); transition-delay: 0.3s; }
+        .flip-container.permanent-flip .flip-char:nth-child(4) .flip-back { transform: rotateX(0deg); transition-delay: 0.3s; }
+        .flip-container.permanent-flip .flip-char:nth-child(5) .flip-front { transform: rotateX(-180deg); transition-delay: 0.4s; }
+        .flip-container.permanent-flip .flip-char:nth-child(5) .flip-back { transform: rotateX(0deg); transition-delay: 0.4s; }
+
+        /* --- Make permanent-flip override hover --- */
+        .flip-container.permanent-flip:hover .flip-char .flip-front,
+        .flip-container.permanent-flip:hover .flip-char .flip-back {
+          /* No extra rules needed, permanent-flip will take precedence due to CSS specificity */
         }
 
         .error-message {
@@ -95,10 +180,11 @@
         }
 
         .error-message h2 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 600;
             margin-bottom: 1rem;
             color: white;
+            letter-spacing: -0.02em;
         }
 
         .error-message p {
@@ -106,6 +192,7 @@
             line-height: 1.6;
             color: rgba(255, 255, 255, 0.8);
             margin: 0;
+            max-width: 500px;
         }
 
         .error-actions {
@@ -128,6 +215,8 @@
             font-weight: 500;
             transition: all 0.3s ease;
             border-radius: 0;
+            font-family: 'Poppins', sans-serif;
+            white-space: nowrap;
         }
 
         .primary-btn {
@@ -143,21 +232,75 @@
 
         .primary-btn i {
             color: black;
+            transition: color 0.3s ease;
         }
 
         .primary-btn:hover i {
             color: white;
         }
 
+        .sharp-btn {
+            border-radius: 0;
+            border: 2px solid #fff;
+            background: #111;
+            color: #fff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 14px 32px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+            transition: 
+                background 0.2s,
+                color 0.2s,
+                border-color 0.2s,
+                box-shadow 0.2s,
+                transform 0.15s;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
 
+        .sharp-btn i {
+            color: #fff;
+            font-size: 1.2em;
+            transition: color 0.2s;
+        }
+
+        .sharp-btn:hover, .sharp-btn:focus {
+            background: #fff;
+            color: #111;
+            border-color: #111;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+            transform: translateY(-2px) scale(1.04);
+        }
+
+        .sharp-btn:hover i, .sharp-btn:focus i {
+            color: #111;
+        }
 
         @media (max-width: 768px) {
-            .error-number h1 {
-                font-size: 6rem;
+            .flip-char {
+                width: 60px;
+                height: 80px;
+            }
+
+            .flip-front, .flip-back {
+                font-size: 3rem;
+            }
+
+            .flip-container {
+                gap: 8px;
+                padding: 15px;
             }
 
             .error-message h2 {
-                font-size: 2rem;
+                font-size: 1.2rem;
+            }
+
+            .error-message p {
+                font-size: 0.9rem;
             }
 
             .error-actions {
@@ -166,29 +309,59 @@
             }
 
             .error-btn {
-                width: 200px;
+                width: 160px;
                 justify-content: center;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                gap: 1rem;
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
         }
 
         @media (max-width: 480px) {
-            .error-number h1 {
-                font-size: 4rem;
+            .flip-char {
+                width: 40px;
+                height: 55px;
+            }
+
+            .flip-front, .flip-back {
+                font-size: 2rem;
+            }
+
+            .flip-container {
+                gap: 4px;
+                padding: 10px;
             }
 
             .error-message h2 {
-                font-size: 1.5rem;
+                font-size: 1rem;
             }
 
             .error-message p {
-                font-size: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .error-btn {
+                width: 140px;
+                padding: 8px 16px;
+                font-size: 0.8rem;
             }
         }
     </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const flipContainer = document.querySelector('.flip-container');
+            let isFlipped = false;
+
+            flipContainer.addEventListener('click', function() {
+                if (!isFlipped) {
+                    flipContainer.classList.add('permanent-flip');
+                    isFlipped = true;
+                } else {
+                    flipContainer.classList.remove('permanent-flip');
+                    isFlipped = false;
+                }
+            });
+        });
+    </script>
 </body>
 </html> 
