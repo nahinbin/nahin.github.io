@@ -1,5 +1,40 @@
 // Certificate Modal and Filter Functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Hamburger Menu Animation
+    const hamburger = document.querySelector('.custom-hamburger');
+    
+    console.log('Hamburger element found:', hamburger);
+    
+    if (hamburger) {
+        // Function to toggle hamburger state
+        function toggleHamburger() {
+            console.log('Toggling hamburger, current state:', hamburger.classList.contains('active'));
+            hamburger.classList.toggle('active');
+            console.log('New state:', hamburger.classList.contains('active'));
+        }
+        
+        // Listen for clicks on the hamburger button
+        hamburger.addEventListener('click', function() {
+            console.log('Hamburger clicked');
+            // Use a small delay to let Bootstrap process the click first
+            setTimeout(toggleHamburger, 50);
+        });
+        
+        // Also listen for clicks on nav links to close menu
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Nav link clicked, closing hamburger');
+                // Close hamburger when nav link is clicked
+                setTimeout(() => {
+                    hamburger.classList.remove('active');
+                }, 100);
+            });
+        });
+    } else {
+        console.log('Hamburger element not found');
+    }
+    
     // Hello Text Animation
     const helloText = document.getElementById('hello-text');
     const helloWords = document.querySelectorAll('.hello-word');

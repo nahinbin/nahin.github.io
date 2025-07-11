@@ -15,7 +15,7 @@
 }
 
 body {
-    background-color: black;
+    background-color: #0D0D0D;
 }
 
 h1, p {
@@ -248,6 +248,7 @@ section {
     position: relative;
     height: 100px;
     margin-top: 2rem;
+    background: transparent !important;
 }
 
 .scroll-hint {
@@ -263,6 +264,10 @@ section {
     color: inherit;
     cursor: pointer;
     scroll-behavior: smooth;
+    border: none !important;
+    background: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .scroll-hint:hover {
@@ -326,7 +331,7 @@ section {
     width: 80%;
     max-width: 600px;
     height: 400px;
-    background-color: rgba(17, 17, 17, 0.5);
+    background-color: rgba(46, 46, 38, 0.5); /* #2E2E26 with 0.5 opacity */
     -ms-overflow-style: none;
     scrollbar-width: none;
     position: relative;
@@ -341,7 +346,7 @@ section {
     padding: 0;
     position: relative;
     scroll-snap-align: start;
-    background-color: rgba(17, 17, 17, 0.1);
+    background-color: rgba(46, 46, 38, 0.1); /* #2E2E26 with 0.1 opacity */
 }
 
 .project-card-inner {
@@ -560,7 +565,7 @@ section {
     width: 80%;
     max-width: 600px;
     height: 400px;
-    background-color: rgba(17, 17, 17, 0.5);
+    background-color: rgba(46, 46, 38, 0.5); /* #2E2E26 with 0.5 opacity */
     position: relative;
     margin: 0 auto;
     padding: 0;
@@ -612,7 +617,7 @@ section {
     height: 100%;
     position: relative;
     scroll-snap-align: start;
-    background-color: rgba(17, 17, 17, 0.1);
+    background-color: rgba(46, 46, 38, 0.1); /* #2E2E26 with 0.1 opacity */
 }
 
 .certificate-card-inner {
@@ -945,7 +950,7 @@ section {
 .no-certificates-message {
     text-align: center;
     padding: 2rem;
-    background-color: rgba(17, 17, 17, 0.5);
+    background-color: rgba(46, 46, 38, 0.5); /* #2E2E26 with 0.5 opacity */
     border: 1px solid rgba(255, 255, 255, 0.1);
     width: 100%;
     height: 100%;
@@ -1454,7 +1459,7 @@ textarea.form-control:focus {
    12. Installation Guide Styles
    ========================= */
 .guide-to-installation {
-    background-color: black;
+    background-color: #2E2E26;
     padding: 100px 0 40px 0;
     min-height: 100vh;
     display: flex;
@@ -2056,9 +2061,7 @@ textarea.form-control:focus {
     color: var(--soft-white);
 }
 
-body {
-    background-color: black;
-}
+
 
 h1, p, .cardTitle, .cardLink, .project-title, .project-link, .certificate-link, .status-badge, .modal-title, .modal-body, .detail-label, .detail-value, .verify-link, .no-certificates-message p, .filter-btn, .filter-toggle, .contact-label, .contact-value, .social-link, .submit-btn, .step-content h3, .step-content p, .installation-header h2, .installation-header p, .installation-notes h3, .installation-notes li, .troubleshooting h3, .troubleshooting p, .troubleshooting a {
     color: var(--soft-white) !important;
@@ -2213,6 +2216,8 @@ h1, p, .cardTitle, .cardLink, .project-title, .project-link, .certificate-link, 
         box-shadow: none !important;
         margin: 0 !important;
         padding: 0 !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
     }
     
     .nav-item {
@@ -2242,6 +2247,20 @@ h1, p, .cardTitle, .cardLink, .project-title, .project-link, .certificate-link, 
         box-shadow: none !important;
         outline: none !important;
         transform: none !important;
+    }
+}
+
+/* Medium view specific fixes */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .navbar-nav.ms-auto {
+        justify-content: flex-end !important;
+        align-items: center !important;
+        margin-left: auto !important;
+    }
+    
+    .navbar .container-fluid {
+        justify-content: space-between !important;
+        align-items: center !important;
     }
 }
 
@@ -2378,7 +2397,8 @@ h1, p, .cardTitle, .cardLink, .project-title, .project-link, .certificate-link, 
   height: 4px;
   background: rgba(255, 255, 255, 0.9);
   border-radius: 0;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
 }
 .custom-hamburger .bar1 {
   width: 22px;
@@ -2391,6 +2411,24 @@ h1, p, .cardTitle, .cardLink, .project-title, .project-link, .certificate-link, 
 .custom-hamburger .bar3 {
   width: 8px;
   margin-left: 14px;
+}
+
+/* Hamburger to Cross Animation */
+.custom-hamburger.active .bar1 {
+  transform: rotate(45deg) translate(5px, 5px);
+  width: 22px;
+  margin-left: 0;
+}
+
+.custom-hamburger.active .bar2 {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.custom-hamburger.active .bar3 {
+  transform: rotate(-45deg) translate(5px, -5px);
+  width: 22px;
+  margin-left: 0;
 }
 
 /* --- EXPLORE SECTION REMAKE --- */
@@ -2428,10 +2466,8 @@ h1, p, .cardTitle, .cardLink, .project-title, .project-link, .certificate-link, 
   justify-content: center;
   width: 180px;
   height: 90px;
-  background: linear-gradient(rgba(10,10,10,0.68), rgba(10,10,10,0.68)), url('../assets/images/logo.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  /* Remove background from here */
+  background: none !important;
   border: 2px solid rgba(255,255,255,0.18);
   border-radius: 0;
   font-size: 1.25rem;
@@ -2444,31 +2480,56 @@ h1, p, .cardTitle, .cardLink, .project-title, .project-link, .certificate-link, 
   box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
   cursor: pointer;
   position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
-.explore-card:nth-child(4) {
-  background: linear-gradient(rgba(10,10,10,0.68), rgba(10,10,10,0.68)), url('../assets/images/listo-background.png');
+.explore-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.65) 100%), url('../assets/images/logo.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  pointer-events: none;
+  transition: background 0.18s cubic-bezier(.4,0,.2,1);
+}
+
+.explore-card:nth-child(4)::before {
+  background-image: linear-gradient(135deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.65) 100%), url('../assets/images/listo-background.png');
+}
+
+.explore-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .explore-card:hover, .explore-card:focus {
-  background: linear-gradient(rgba(255,255,255,0.18), rgba(10,10,10,0.68)), url('../assets/images/logo.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  /* Remove background from here */
   border-color: #fff;
   color: #111;
   transform: scale(1.045);
   z-index: 2;
 }
 
-.explore-card:nth-child(4):hover, .explore-card:nth-child(4):focus {
-  background: linear-gradient(rgba(255,255,255,0.18), rgba(10,10,10,0.68)), url('../assets/images/listo-background.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+.explore-card:hover::before, .explore-card:focus::before {
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.6) 100%), url('../assets/images/logo.png');
+}
+
+.explore-card:nth-child(4):hover::before, .explore-card:nth-child(4):focus::before {
+  background-image: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.6) 100%), url('../assets/images/listo-background.png');
+}
+
+.explore-card-content {
+  position: relative;
+  z-index: 1;
+  color: var(--soft-white, #fff);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7), 0 0px 1px #000;
+  display: block;
+  width: 100%;
+  text-align: center;
 }
 
 @media (max-width: 900px) {
@@ -2516,4 +2577,24 @@ h1, p, .cardTitle, .cardLink, .project-title, .project-link, .certificate-link, 
   .contact-left, .contact-right {
     margin-bottom: 32px !important;
   }
+}
+
+.scroll-hint span {
+  border: none !important;
+  background: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline-block;
+}
+
+.scroll-hint::before,
+.scroll-hint::after,
+.scroll-hint-container::before,
+.scroll-hint-container::after {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  content: none !important;
 }
