@@ -33,10 +33,10 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="/">Home</a>
+                                <a class="nav-link" href="projects">Projects</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="certificates">Certifications</a>
+                                <a class="nav-link" href="certificates">Certificates</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#contactinfo">Contact</a>
@@ -151,16 +151,29 @@
                     "Hola",       // Spanish
                     "Bonjour",    // French
                     "Hallo",      // German
-                    "Ciao",       // Italian
-                    "Olá",        // Portuguese
-                    "こんにちは",    // Japanese
                     "안녕하세요",     // Korean
+                    "こんにちは",    // Japanese
                     "你好",         // Chinese
-                    "Привет",      // Russian
+                    "Ciao",       // Italian
                     "مرحبا",       // Arabic
                 ];
                 const helloSpan = document.getElementById('hello-animated');
                 let greetIndex = 0;
+
+                // Add fade CSS if not present
+                if (!document.getElementById('hello-fade-style')) {
+                    const style = document.createElement('style');
+                    style.id = 'hello-fade-style';
+                    style.innerHTML = `
+                        #hello-animated {
+                            transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1);
+                        }
+                        #hello-animated.fade {
+                            opacity: 0;
+                        }
+                    `;
+                    document.head.appendChild(style);
+                }
 
                 if (helloSpan) {
                     setInterval(() => {
@@ -169,8 +182,8 @@
                             greetIndex = (greetIndex + 1) % hellos.length;
                             helloSpan.textContent = hellos[greetIndex];
                             helloSpan.classList.remove('fade');
-                        }, 300);
-                    }, 800);
+                        }, 700); // match fade duration
+                    }, 1800); // slightly less delay between changes
                 }
             });
         </script>
