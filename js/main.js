@@ -1,5 +1,40 @@
 // Certificate Modal and Filter Functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Hello Text Animation
+    const helloText = document.getElementById('hello-text');
+    const helloWords = document.querySelectorAll('.hello-word');
+    let currentIndex = 0;
+    
+    console.log('Looking for hello text element...');
+    console.log('Hello text element:', helloText);
+    console.log('Found', helloWords.length, 'hello words');
+    
+    if (helloWords.length > 0 && helloText) {
+        // Make sure the first word is visible
+        helloWords[0].classList.add('active');
+        console.log('First word should be visible now');
+        
+        function animateHelloText() {
+            // Remove active class from current word
+            helloWords[currentIndex].classList.remove('active');
+            helloWords[currentIndex].classList.add('fade-out');
+            
+            // Move to next word
+            currentIndex = (currentIndex + 1) % helloWords.length;
+            
+            // Add active class to new word
+            helloWords[currentIndex].classList.remove('fade-out');
+            helloWords[currentIndex].classList.add('active');
+        }
+        
+        // Start animation after 2 seconds and repeat every 0.5 seconds
+        setTimeout(() => {
+            console.log('Starting animation');
+            setInterval(animateHelloText, 500);
+        }, 2000);
+    } else {
+        console.log('No hello words found or hello text element missing!');
+    }
     // Installation Guide Navigation
     const prevBtn = document.getElementById('prevStep');
     const nextBtn = document.getElementById('nextStep');

@@ -9,7 +9,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="css/styles.css"/>
-
+        <!-- Font Awesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
         
 
@@ -22,6 +23,26 @@
                     <a class="navbar-brand d-flex align-items-center" href="#">
                         <img src="assets/images/logo.png" alt="nahin's logo" class="logo">
                     </a>
+                    
+                    <button class="navbar-toggler custom-hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="bar bar1"></span>
+                        <span class="bar bar2"></span>
+                        <span class="bar bar3"></span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="certificates">Certifications</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contactinfo">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </header>
@@ -29,11 +50,16 @@
         <main>
             <div class="container">
                 <section id="aboutMe" class="aboutMe">
-                    <div class="container">
+                    <div class="hello-left">
                         <div class="nameheader">
-                            <h1>Hi, I'm Nahin.</h1>
+                            <h1>
+                                <span id="hello-animated">Hello</span>
+                            </h1>
                         </div>
+                    </div>
+                    <div class="description-container">
                         <div class="description">
+                            <h1>I'm Nahin</h1>
                             <p>
                                 i am currently a foundation year student @ MMU.
                                 i am passionate about software and web development and curious
@@ -41,58 +67,112 @@
                             </p>
                         </div>
                         <div class="scroll-hint-container">
-                            <a href="#explore" class="scroll-hint">
+                            <a href="#contactinfo" class="scroll-hint">
                                 <span>⌵</span>
                             </a>
                         </div>
+                    </div>
                 </section>
 
-                <section id="explore" class="explore">
+
+                <section id="contactinfo" class="contactinfo">
                     <div class="container">
-                        <div class="projectsBox">
-                            <h2 class="explore-text">explore.</h2>
+                        <div class="contact-layout">
+                            <!-- Left Column: Socials and Info -->
+                            <div class="contact-left">
+                                <div class="socials-header">
+                                    <h1 class="socials-title">info.</h1>
+                                </div>
+                                <a href="mailto:code@nahin.space" class="contact-item">
+                                    <div class="contact-details">
+                                        <span class="contact-label">email me at:</span>
+                                        <span class="contact-value">code@nahin.space</span>
+                                    </div>
+                                </a>
+                                <div class="social-links">
+                                    <a href="https://github.com/nahinbin" target="_blank" class="social-link" aria-label="GitHub">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/nahinibn" target="_blank" class="social-link" aria-label="LinkedIn">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/nahinibn" target="_blank" class="social-link" aria-label="Instagram">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="https://www.youtube.com/@nahinibn" target="_blank" class="social-link" aria-label="YouTube">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Column: Contact Form -->
+                            <div class="contact-right">
+                                <div class="contact-form-wrapper">
+                                    <div class="contact-form-card fade-in">
+                                        <form id="contactForm" class="contact-form" method="post">
+                                            <div class="form-group">
+                                                <label for="name" class="form-label"></label>
+                                                <input type="text" class="form-control" id="name" name="name" placeholder="Your name" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email" class="form-label"></label>
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="Your email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="message" class="form-label"></label>
+                                                <textarea class="form-control" id="message" name="message" placeholder="Your message" rows="3" required></textarea>
+                                            </div>
+                                            <button type="submit" class="submit-btn">
+                                                <span>Send</span>
+                                            </button>
+                                            <div id="formStatus" style="margin-top: 1em;"></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="explore-grid">
-                        <a href="projects" class="explore-card">
-                            <div class="card-icon">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <h3>projects</h3>
-                            <div class="card-arrow">
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
-                        </a>
-                        <a href="certificates" class="explore-card">
-                            <div class="card-icon">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <h3>certificates</h3>
-                            <div class="card-arrow">
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
-                        </a>
-                        <a href="contact" class="explore-card">
-                            <div class="card-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <h3>contact</h3>
-                            <div class="card-arrow">
-                                <i class="fas fa-arrow-right"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="scroll-dots">
-                        <div class="scroll-dot active"></div>
-                        <div class="scroll-dot"></div>
-                        <div class="scroll-dot"></div>
-                        <div class="scroll-dot"></div>
-                    </div>
                     <div class="copyright-text">
-                        <p>&copy; 2025 Nahin Bin Monir. All rights <a href="customize.html" style="text-decoration: none; color: inherit;">reserved</a>.</p>
+                        <p>&copy; 2025 Nahin Bin Monir. All rights <a href="game.html" style="text-decoration: none; color: inherit;">reserved</a>.</p>
                     </div>
                 </section>
+
             </div>
         </main>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <!-- Custom JS -->
+        <script src="js/main.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const hellos = [
+                    "Hello",      // English
+                    "Hola",       // Spanish
+                    "Bonjour",    // French
+                    "Hallo",      // German
+                    "Ciao",       // Italian
+                    "Olá",        // Portuguese
+                    "こんにちは",    // Japanese
+                    "안녕하세요",     // Korean
+                    "你好",         // Chinese
+                    "Привет",      // Russian
+                    "مرحبا",       // Arabic
+                ];
+                const helloSpan = document.getElementById('hello-animated');
+                let greetIndex = 0;
+
+                if (helloSpan) {
+                    setInterval(() => {
+                        helloSpan.classList.add('fade');
+                        setTimeout(() => {
+                            greetIndex = (greetIndex + 1) % hellos.length;
+                            helloSpan.textContent = hellos[greetIndex];
+                            helloSpan.classList.remove('fade');
+                        }, 300);
+                    }, 800);
+                }
+            });
+        </script>
     </body>
 </html>
