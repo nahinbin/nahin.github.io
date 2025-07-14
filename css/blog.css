@@ -86,6 +86,17 @@
     font-weight: 400;
 }
 
+.about-me-bio a {
+    color: rgba(255,254,230,0.7);
+    text-decoration: none;
+    font-style: italic;
+    transition: color 0.2s;
+}
+.about-me-bio a:hover {
+    color: var(--soft-white);
+    text-decoration: underline;
+}
+
 .about-me-stats {
     display: flex;
     gap: 1.5rem;
@@ -205,19 +216,23 @@
 }
 
 .post-menu-btn {
-    background: none;
+    background: none !important;
     border: none;
     color: rgba(255, 254, 230, 0.6);
     font-size: 1.1rem;
     padding: 0.5rem;
-    border-radius: 50%;
+    border-radius: 0 !important;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.post-menu-btn:hover {
+.post-menu-btn:hover,
+.post-menu-btn:active,
+.post-menu-btn:focus {
     color: var(--soft-white);
-    background: rgba(255, 254, 230, 0.1);
+    background: none !important;
+    border-radius: 0 !important;
+    outline: none;
 }
 
 /* Post Content */

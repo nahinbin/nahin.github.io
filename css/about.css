@@ -8,6 +8,8 @@
     scroll-behavior: auto !important;
     height: auto !important;
     overflow-y: visible !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
 }
 
 section {
@@ -16,16 +18,16 @@ section {
     min-height: auto !important;
 }
 
-.about-simple {
+.about-hero {
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: auto;
-    padding: 8rem 2rem 4rem 2rem;
+    padding: 8rem 2rem 4rem 0;
     margin-top: 60px;
 }
 
-.about-content-wrapper {
+.about-hero-content {
     display: flex;
     align-items: flex-start;
     gap: 4rem;
@@ -37,6 +39,11 @@ section {
 .about-image {
     flex-shrink: 0;
     width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-left: 0;
 }
 
 .profile-image {
@@ -45,7 +52,9 @@ section {
     object-fit: cover;
     border-radius: 12px;
     border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
     transition: all 0.3s ease;
+    background: #222;
 }
 
 .profile-image:hover {
@@ -58,12 +67,13 @@ section {
     max-width: 800px;
 }
 
-.about-text h1 {
-    font-size: 3rem;
+.about-header h1 {
+    font-size: 2.1rem;
     font-weight: 700;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     color: var(--soft-white);
     margin-top: 0;
+    text-align: center;
 }
 
 .about-essay {
@@ -71,16 +81,16 @@ section {
 }
 
 .about-essay p {
-    font-size: 1.1rem;
-    color: rgba(255,254,230,0.9);
-    margin-bottom: 2rem;
+    font-size: 0.98rem;
+    color: rgba(255,254,230,0.92);
+    margin-bottom: 1.2rem;
     text-align: justify;
     text-justify: inter-word;
-    line-height: 1.8;
+    line-height: 1.7;
 }
 
 .about-essay p:first-of-type {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-weight: 500;
     color: var(--soft-white);
 }
@@ -91,13 +101,31 @@ section {
     font-weight: 500;
 }
 
+.about-back-link {
+    display: inline-block;
+    margin-top: 1.2rem;
+    color: rgba(255,254,230,0.7);
+    font-size: 1rem;
+    text-decoration: none !important;
+    transition: color 0.2s;
+    padding-left: 2px;
+}
+.about-back-link:hover {
+    color: var(--soft-white);
+    text-decoration: none !important;
+}
+
+.about-back-link-mobile {
+    display: none;
+}
+
 /* Responsive Design for About Page */
 @media (max-width: 1024px) {
-    .about-simple {
-        padding: 6rem 1.5rem 3rem 1.5rem;
+    .about-hero {
+        padding: 6rem 1.5rem 3rem 0;
     }
     
-    .about-content-wrapper {
+    .about-hero-content {
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -121,46 +149,81 @@ section {
     }
 }
 
-@media (max-width: 768px) {
-    .about-simple {
-        padding: 5rem 1rem 2rem 1rem;
-        margin-top: 40px;
-    }
-    
-    .about-content-wrapper {
-        gap: 1.5rem;
-    }
-    
+@media (min-width: 769px) {
     .about-image {
-        width: 200px;
+        margin-top: 4.5rem;
     }
-    
+    .about-back-link {
+        align-self: flex-end;
+        padding-right: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-hero {
+        padding: 3.5rem 5vw 1.5rem 5vw;
+        margin-top: 0;
+    }
+    .about-hero-content {
+        display: block;
+        text-align: left;
+        margin-top: 2rem;
+    }
+    .about-image {
+        width: 120px;
+        margin-top: 0;
+        margin-right: 1rem;
+        float: left;
+        flex-shrink: 0;
+        align-items: flex-start;
+    }
     .profile-image {
-        height: 280px;
+        height: 120px;
+        border-radius: 8px;
     }
-    
-    .about-text h1 {
-        font-size: 2rem;
-        margin-bottom: 1.5rem;
+    .about-header {
+        max-width: 100%;
     }
-    
-    .about-essay p {
-        font-size: 1rem;
-        margin-bottom: 1rem;
-    }
-    
-    .about-essay p:first-of-type {
+    .about-header h1 {
         font-size: 1.1rem;
+        margin-bottom: 0.7rem;
+        text-align: left;
+    }
+    .about-essay p {
+        font-size: 0.92rem;
+        margin-bottom: 0.7rem;
+        line-height: 1.5;
+        color: rgba(255,254,230,0.92);
+    }
+    .about-essay p:first-of-type {
+        font-size: 1rem;
+    }
+    .about-back-link {
+        display: none;
+    }
+    .about-back-link-mobile {
+        display: block;
+        text-align: center;
+        margin: 2.2rem auto 0 auto;
+        color: rgba(255,254,230,0.7);
+        font-size: 0.95rem;
+        text-decoration: none !important;
+        transition: color 0.2s;
+        width: fit-content;
+    }
+    .about-back-link-mobile:hover {
+        color: var(--soft-white);
+        text-decoration: none !important;
     }
 }
 
 @media (max-width: 480px) {
     .about-image {
-        width: 180px;
+        width: 140px;
     }
     
     .profile-image {
-        height: 240px;
+        height: 160px;
     }
     
     .about-text h1 {

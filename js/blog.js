@@ -32,8 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     commentButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // For now, just show an alert. In a real app, this would open a comment modal
-            alert('Comment functionality coming soon! 💬');
+            // No notification or alert
         });
     });
     
@@ -55,11 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Fallback for browsers that don't support Web Share API
                 const textToShare = postText.substring(0, 100) + '...';
                 if (navigator.clipboard) {
-                    navigator.clipboard.writeText(textToShare).then(() => {
-                        showToast('Post text copied to clipboard! 📋');
-                    });
-                } else {
-                    showToast('Sharing not supported on this browser');
+                    navigator.clipboard.writeText(textToShare);
                 }
             }
         });
@@ -75,10 +70,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (isBookmarked) {
                 icon.className = 'far fa-bookmark';
-                showToast('Removed from bookmarks');
             } else {
                 icon.className = 'fas fa-bookmark';
-                showToast('Added to bookmarks! 🔖');
             }
         });
     });
@@ -88,8 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     menuButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // For now, just show an alert. In a real app, this would show a dropdown menu
-            alert('Post options coming soon! ⚙️');
+            // No notification or alert
         });
     });
     
@@ -98,9 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     tags.forEach(tag => {
         tag.addEventListener('click', function() {
-            const tagText = this.textContent;
-            showToast(`Filtering by ${tagText}`);
-            // In a real app, this would filter posts by tag
+            // No notification or alert
         });
     });
     
@@ -109,9 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     aboutTags.forEach(tag => {
         tag.addEventListener('click', function() {
-            const tagText = this.textContent;
-            showToast(`Showing posts about ${tagText}`);
-            // In a real app, this would filter posts by the selected tag
+            // No notification or alert
         });
     });
     
@@ -135,8 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Reset button
                 btn.classList.remove('loading');
                 btn.innerHTML = '<i class="fas fa-spinner"></i>Load More Posts';
-                
-                showToast('New posts loaded! 📝');
             }, 1500);
         });
     }
@@ -235,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (commentBtn) {
             commentBtn.addEventListener('click', function() {
-                alert('Comment functionality coming soon! 💬');
+                // No notification or alert
             });
         }
         
@@ -251,11 +237,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     const textToShare = postText.substring(0, 100) + '...';
                     if (navigator.clipboard) {
-                        navigator.clipboard.writeText(textToShare).then(() => {
-                            showToast('Post text copied to clipboard! 📋');
-                        });
-                    } else {
-                        showToast('Sharing not supported on this browser');
+                        navigator.clipboard.writeText(textToShare);
                     }
                 }
             });
@@ -268,74 +250,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (isBookmarked) {
                     icon.className = 'far fa-bookmark';
-                    showToast('Removed from bookmarks');
                 } else {
                     icon.className = 'fas fa-bookmark';
-                    showToast('Added to bookmarks! 🔖');
                 }
             });
         }
         
         if (menuBtn) {
             menuBtn.addEventListener('click', function() {
-                alert('Post options coming soon! ⚙️');
+                // No notification or alert
             });
         }
         
         tags.forEach(tag => {
             tag.addEventListener('click', function() {
-                const tagText = this.textContent;
-                showToast(`Filtering by ${tagText}`);
+                // No notification or alert
             });
         });
-    }
-    
-    // Toast notification function
-    function showToast(message) {
-        // Remove existing toast if any
-        const existingToast = document.querySelector('.toast-notification');
-        if (existingToast) {
-            existingToast.remove();
-        }
-        
-        // Create toast element
-        const toast = document.createElement('div');
-        toast.className = 'toast-notification';
-        toast.textContent = message;
-        
-        // Add styles
-        toast.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 254, 230, 0.95);
-            color: #0D0D0D;
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            z-index: 1000;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-        `;
-        
-        document.body.appendChild(toast);
-        
-        // Animate in
-        setTimeout(() => {
-            toast.style.transform = 'translateX(0)';
-        }, 10);
-        
-        // Remove after 3 seconds
-        setTimeout(() => {
-            toast.style.transform = 'translateX(100%)';
-            setTimeout(() => {
-                if (toast.parentNode) {
-                    toast.remove();
-                }
-            }, 300);
-        }, 3000);
     }
     
     // Add smooth scroll behavior
