@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Nahin in the Space</title>
+    <link rel="icon" type="image/png" href="assets/images/icon.png">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="css/blog.css"/>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-sm fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="assets/images/logo.png" alt="nahin's logo" class="logo">
+                </a>
+                
+                <button class="navbar-toggler custom-hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="bar bar1"></span>
+                    <span class="bar bar2"></span>
+                    <span class="bar bar3"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="projects.html">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="certificates.html">Certificates</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contactinfo">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="blog-main">
+        <div class="container">
+            <!-- Blog Header -->
+            <div class="blog-header">
+                <h1 class="blog-title">Blog</h1>
+                <p class="blog-subtitle">Thoughts, tutorials, and random musings</p>
+            </div>
+
+            <!-- About Me Section -->
+            <div class="about-me-section">
+                <div class="about-me-card">
+                    <div class="about-me-header">
+                        <img src="assets/images/me.jpeg" alt="Nahin" class="about-me-avatar">
+                        <div class="about-me-info">
+                            <h2 class="about-me-name">Nahin Bin Monir</h2>
+                            <p class="about-me-bio">CS student @Multimedia University. Passionate about software development and AI. Currently doing my foundation year and learning web development for fun.</p>
+                            <div class="about-me-stats">
+                                <div class="stat">
+                                    <span class="stat-number">4</span>
+                                    <span class="stat-label">Posts</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">2.1k</span>
+                                    <span class="stat-label">Views</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">156</span>
+                                    <span class="stat-label">Likes</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-me-tags">
+                        <span class="about-tag">#WebDevelopment</span>
+                        <span class="about-tag">#JavaScript</span>
+                        <span class="about-tag">#AI</span>
+                        <span class="about-tag">#Python</span>
+                        <span class="about-tag">#ChromeExtension</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Feed -->
+            <div class="blog-feed">
+                <!-- Post 1 -->
+                <article class="blog-post">
+                    <div class="post-header">
+                        <div class="post-author">
+                            <img src="assets/images/me.jpeg" alt="Nahin" class="author-avatar">
+                            <div class="author-info">
+                                <h3 class="author-name">Nahin Bin Monir</h3>
+                                <span class="post-date">2 hours ago</span>
+                            </div>
+                        </div>
+                        <button class="post-menu-btn">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="post-content">
+                        <p class="post-text">Just finished building my first Chrome extension! 🚀 It's been an amazing journey learning about browser APIs and JavaScript. The extension helps with productivity and I'm excited to share the code soon.</p>
+                        <div class="post-image">
+                            <img src="assets/images/listo.png" alt="Listo Chrome Extension">
+                        </div>
+                        <div class="post-tags">
+                            <span class="tag">#ChromeExtension</span>
+                            <span class="tag">#JavaScript</span>
+                            <span class="tag">#WebDev</span>
+                        </div>
+                    </div>
+                    
+                    <div class="post-actions">
+                        <button class="action-btn like-btn" data-liked="false">
+                            <i class="far fa-heart"></i>
+                            <span class="action-count">24</span>
+                        </button>
+                        <button class="action-btn comment-btn">
+                            <i class="far fa-comment"></i>
+                            <span class="action-count">8</span>
+                        </button>
+                        <button class="action-btn share-btn">
+                            <i class="far fa-share-square"></i>
+                        </button>
+                        <button class="action-btn bookmark-btn">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="blog-post">
+                    <div class="post-header">
+                        <div class="post-author">
+                            <img src="assets/images/me.jpeg" alt="Nahin" class="author-avatar">
+                            <div class="author-info">
+                                <h3 class="author-name">Nahin Bin Monir</h3>
+                                <span class="post-date">1 day ago</span>
+                            </div>
+                        </div>
+                        <button class="post-menu-btn">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="post-content">
+                        <p class="post-text">Learning AI and machine learning has been mind-blowing! 🤖 Working on some interesting projects with TensorFlow and Python. The possibilities are endless when you combine AI with web development.</p>
+                        <div class="post-image">
+                            <img src="assets/images/build-with-ai.jpg" alt="AI Development">
+                        </div>
+                        <div class="post-tags">
+                            <span class="tag">#AI</span>
+                            <span class="tag">#MachineLearning</span>
+                            <span class="tag">#Python</span>
+                            <span class="tag">#TensorFlow</span>
+                        </div>
+                    </div>
+                    
+                    <div class="post-actions">
+                        <button class="action-btn like-btn" data-liked="false">
+                            <i class="far fa-heart"></i>
+                            <span class="action-count">42</span>
+                        </button>
+                        <button class="action-btn comment-btn">
+                            <i class="far fa-comment"></i>
+                            <span class="action-count">15</span>
+                        </button>
+                        <button class="action-btn share-btn">
+                            <i class="far fa-share-square"></i>
+                        </button>
+                        <button class="action-btn bookmark-btn">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="blog-post">
+                    <div class="post-header">
+                        <div class="post-author">
+                            <img src="assets/images/me.jpeg" alt="Nahin" class="author-avatar">
+                            <div class="author-info">
+                                <h3 class="author-name">Nahin Bin Monir</h3>
+                                <span class="post-date">3 days ago</span>
+                            </div>
+                        </div>
+                        <button class="post-menu-btn">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="post-content">
+                        <p class="post-text">Started my foundation year at Multimedia University! 📚 Excited to dive deep into computer science fundamentals. The journey from learning basic programming to building real-world applications has been incredible.</p>
+                        <div class="post-tags">
+                            <span class="tag">#University</span>
+                            <span class="tag">#ComputerScience</span>
+                            <span class="tag">#Learning</span>
+                        </div>
+                    </div>
+                    
+                    <div class="post-actions">
+                        <button class="action-btn like-btn" data-liked="false">
+                            <i class="far fa-heart"></i>
+                            <span class="action-count">67</span>
+                        </button>
+                        <button class="action-btn comment-btn">
+                            <i class="far fa-comment"></i>
+                            <span class="action-count">23</span>
+                        </button>
+                        <button class="action-btn share-btn">
+                            <i class="far fa-share-square"></i>
+                        </button>
+                        <button class="action-btn bookmark-btn">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Post 4 -->
+                <article class="blog-post">
+                    <div class="post-header">
+                        <div class="post-author">
+                            <img src="assets/images/me.jpeg" alt="Nahin" class="author-avatar">
+                            <div class="author-info">
+                                <h3 class="author-name">Nahin Bin Monir</h3>
+                                <span class="post-date">1 week ago</span>
+                            </div>
+                        </div>
+                        <button class="post-menu-btn">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="post-content">
+                        <p class="post-text">Just deployed my personal website! 🎉 Built with HTML, CSS, and JavaScript. It's amazing how much you can learn from building something from scratch. The design process was challenging but rewarding.</p>
+                        <div class="post-image">
+                            <img src="assets/images/personal-website.png" alt="Personal Website">
+                        </div>
+                        <div class="post-tags">
+                            <span class="tag">#WebDevelopment</span>
+                            <span class="tag">#HTML</span>
+                            <span class="tag">#CSS</span>
+                            <span class="tag">#JavaScript</span>
+                        </div>
+                    </div>
+                    
+                    <div class="post-actions">
+                        <button class="action-btn like-btn" data-liked="false">
+                            <i class="far fa-heart"></i>
+                            <span class="action-count">89</span>
+                        </button>
+                        <button class="action-btn comment-btn">
+                            <i class="far fa-comment"></i>
+                            <span class="action-count">31</span>
+                        </button>
+                        <button class="action-btn share-btn">
+                            <i class="far fa-share-square"></i>
+                        </button>
+                        <button class="action-btn bookmark-btn">
+                            <i class="far fa-bookmark"></i>
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="load-more-btn">
+                    <i class="fas fa-spinner"></i>
+                    Load More Posts
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+</html>

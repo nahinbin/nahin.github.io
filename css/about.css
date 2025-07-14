@@ -1,0 +1,177 @@
+/* =========================
+   ABOUT PAGE STYLES
+   ========================= */
+
+/* Override smooth scroll and snap scroll for about page */
+.container {
+    scroll-snap-type: none !important;
+    scroll-behavior: auto !important;
+    height: auto !important;
+    overflow-y: visible !important;
+}
+
+section {
+    scroll-snap-align: none !important;
+    height: auto !important;
+    min-height: auto !important;
+}
+
+.about-simple {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: auto;
+    padding: 8rem 2rem 4rem 2rem;
+    margin-top: 60px;
+}
+
+.about-content-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.about-image {
+    flex-shrink: 0;
+    width: 300px;
+}
+
+.profile-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.profile-image:hover {
+    border-color: rgba(255,255,255,0.3);
+    transform: scale(1.02);
+}
+
+.about-text {
+    flex: 1;
+    max-width: 800px;
+}
+
+.about-text h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--soft-white);
+    margin-top: 0;
+}
+
+.about-essay {
+    line-height: 1.8;
+}
+
+.about-essay p {
+    font-size: 1.1rem;
+    color: rgba(255,254,230,0.9);
+    margin-bottom: 2rem;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.8;
+}
+
+.about-essay p:first-of-type {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--soft-white);
+}
+
+/* Active nav link for about page */
+.nav-link.active {
+    color: var(--soft-white) !important;
+    font-weight: 500;
+}
+
+/* Responsive Design for About Page */
+@media (max-width: 1024px) {
+    .about-simple {
+        padding: 6rem 1.5rem 3rem 1.5rem;
+    }
+    
+    .about-content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 3rem;
+    }
+    
+    .about-image {
+        width: 250px;
+    }
+    
+    .profile-image {
+        height: 350px;
+    }
+    
+    .about-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .about-essay p {
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-simple {
+        padding: 5rem 1rem 2rem 1rem;
+        margin-top: 40px;
+    }
+    
+    .about-content-wrapper {
+        gap: 1.5rem;
+    }
+    
+    .about-image {
+        width: 200px;
+    }
+    
+    .profile-image {
+        height: 280px;
+    }
+    
+    .about-text h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .about-essay p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .about-essay p:first-of-type {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-image {
+        width: 180px;
+    }
+    
+    .profile-image {
+        height: 240px;
+    }
+    
+    .about-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .about-essay p {
+        font-size: 0.95rem;
+    }
+    
+    .about-essay p:first-of-type {
+        font-size: 1rem;
+    }
+} 

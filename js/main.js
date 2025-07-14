@@ -519,6 +519,11 @@ document.addEventListener('DOMContentLoaded', function() {
       data[key] = value;
     });
 
+    // If name is empty, set to 'anonymous'
+    if (!data.name || data.name.trim() === "") {
+      data.name = "anonymous";
+    }
+
     try {
       const response = await fetch("https://formspree.io/f/xqabyqdp", {
         method: "POST",
@@ -559,4 +564,20 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 2500);
     }
   });
+
+// Auto-expand textarea for message field
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    const textarea = document.getElementById('message');
+    if (textarea) {
+      function autoResize() {
+        textarea.style.height = 'auto';
+        textarea.style.height = textarea.scrollHeight + 'px';
+      }
+      textarea.addEventListener('input', autoResize);
+      textarea.addEventListener('focus', autoResize);
+      autoResize();
+    }
+  });
+})();
 

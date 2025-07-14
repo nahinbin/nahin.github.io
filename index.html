@@ -33,10 +33,16 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="projects">Projects</a>
+                                <a class="nav-link" href="projects.html">Projects</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="certificates">Certificates</a>
+                                <a class="nav-link" href="certificates.html">Certificates</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="blog.html">Blog</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#contactinfo">Contact</a>
@@ -61,9 +67,10 @@
                         <div class="description">
                             <h1>I'm Nahin</h1>
                             <p>
-                                i am currently a foundation year student @ MMU.
-                                i am passionate about software and web development and curious
-                                more about how it AI works.
+                                i am a cs student @Multimedia University.
+                                i am passionate about software development and AI.
+                                currently doing my foundation year and learning web development
+                                for fun. <a href="blog">see more...</a>
                             </p>
                         </div>
                         <div class="scroll-hint-container">
@@ -78,10 +85,11 @@
                 <section id="explore" class="explore">
                     <h2 class="explore-text">explore.</h2>
                     <div class="explore-grid">
-                        <a href="projects" class="explore-card"><span class="explore-card-content">projects</span></a>
-                        <a href="certificates" class="explore-card"><span class="explore-card-content">certificates</span></a>
-                        <a href="blog" class="explore-card"><span class="explore-card-content">blog</span></a>
-                        <a href="listo" class="explore-card"><span class="explore-card-content">listo/chrome-extension</span></a>
+                        <a href="projects.html" class="explore-card"><span class="explore-card-content">projects</span></a>
+                        <a href="certificates.html" class="explore-card"><span class="explore-card-content">certificates</span></a>
+                        <a href="about.html" class="explore-card"><span class="explore-card-content">about</span></a>
+                        <a href="blog.html" class="explore-card"><span class="explore-card-content">blog</span></a>
+                        <a href="listo.html" class="explore-card"><span class="explore-card-content">listo/chrome-extension</span></a>
                         <a href="#contactinfo" class="explore-card"><span class="explore-card-content">contact</span></a>
                     </div>
                     <div class="scroll-hint-container">
@@ -93,59 +101,44 @@
 
 
                 <section id="contactinfo" class="contactinfo">
-                    <div class="container">
-                        <div class="contact-layout">
-                            <!-- Left Column: Socials and Info -->
-                            <div class="contact-left">
-                                <div class="socials-header">
-                                    <h1 class="socials-title">info.</h1>
+                    <div class="contact-container">
+                        <div class="contact-content">
+                            <!-- Left: Compact Info -->
+                            <div class="contact-info">
+                                <h1 class="contact-title">contact.</h1>
+                                <div class="contact-methods">
+                                    <a href="mailto:code@nahin.space" class="contact-method">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>code@nahin.space</span>
+                                    </a>
                                 </div>
-                                <a href="mailto:code@nahin.space" class="contact-item">
-                                    <div class="contact-details">
-                                        <span class="contact-label">email me at:</span>
-                                        <span class="contact-value">code@nahin.space</span>
-                                    </div>
-                                </a>
-                                <div class="social-links">
-                                    <a href="https://github.com/nahinbin" target="_blank" class="social-link" aria-label="GitHub">
+                                <div class="social-grid">
+                                    <a href="https://github.com/nahinbin" target="_blank" class="social-item" aria-label="GitHub">
                                         <i class="fab fa-github"></i>
                                     </a>
-                                    <a href="https://www.linkedin.com/in/nahinibn" target="_blank" class="social-link" aria-label="LinkedIn">
+                                    <a href="https://www.linkedin.com/in/nahinibn" target="_blank" class="social-item" aria-label="LinkedIn">
                                         <i class="fab fa-linkedin"></i>
                                     </a>
-                                    <a href="https://www.instagram.com/nahinibn" target="_blank" class="social-link" aria-label="Instagram">
+                                    <a href="https://www.instagram.com/nahinibn" target="_blank" class="social-item" aria-label="Instagram">
                                         <i class="fab fa-instagram"></i>
                                     </a>
-                                    <a href="https://www.youtube.com/@nahinibn" target="_blank" class="social-link" aria-label="YouTube">
+                                    <a href="https://www.youtube.com/@nahinibn" target="_blank" class="social-item" aria-label="YouTube">
                                         <i class="fab fa-youtube"></i>
                                     </a>
                                 </div>
                             </div>
                             
-                            <!-- Right Column: Contact Form -->
-                            <div class="contact-right">
-                                <div class="contact-form-wrapper">
-                                    <div class="contact-form-card fade-in">
-                                        <form id="contactForm" class="contact-form" method="post">
-                                            <div class="form-group">
-                                                <label for="name" class="form-label"></label>
-                                                <input type="text" class="form-control" id="name" name="name" placeholder="Your name" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="email" class="form-label"></label>
-                                                <input type="email" class="form-control" id="email" name="email" placeholder="Your email" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="message" class="form-label"></label>
-                                                <textarea class="form-control" id="message" name="message" placeholder="Your message" rows="3" required></textarea>
-                                            </div>
-                                            <button type="submit" class="submit-btn">
-                                                <span>Send</span>
-                                            </button>
-                                            <div id="formStatus" style="margin-top: 1em;"></div>
-                                        </form>
+                            <!-- Right: Compact Form -->
+                            <div class="contact-form-section">
+                                <form id="contactForm" class="contact-form" method="post">
+                                    <div class="form-row">
+                                        <input type="text" class="form-input" id="name" name="name" placeholder="Name">
+                                        <input type="email" class="form-input" id="email" name="email" placeholder="Email" required>
                                     </div>
-                                </div>
+                                    <textarea class="form-input" id="message" name="message" placeholder="Message"></textarea>
+                                    <button type="submit" class="submit-button">Send</button>
+                                    <div id="formStatus" class="form-status"></div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -167,40 +160,149 @@
                     "Hello",      // English
                     "Hola",       // Spanish
                     "Bonjour",    // French
-                    "Hallo",      // German
                     "안녕하세요",     // Korean
                     "こんにちは",    // Japanese
                     "你好",         // Chinese
                     "Ciao",       // Italian
-                    "مرحبا",       // Arabic
                 ];
                 const helloSpan = document.getElementById('hello-animated');
                 let greetIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+                let typingSpeed = 80;
 
-                // Add fade CSS if not present
-                if (!document.getElementById('hello-fade-style')) {
+                // Add typing effect CSS if not present
+                if (!document.getElementById('typing-effect-style')) {
                     const style = document.createElement('style');
-                    style.id = 'hello-fade-style';
+                    style.id = 'typing-effect-style';
                     style.innerHTML = `
                         #hello-animated {
-                            transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1);
+                            position: relative;
+                            display: inline-block;
+                            width: 200px;
+                            height: 60px;
+                            text-align: center;
+                            overflow: hidden;
                         }
-                        #hello-animated.fade {
+                        #hello-animated::after {
+                            content: '|';
+                            position: absolute;
+                            top: 0;
+                            left: var(--cursor-left, 50%);
+                            transform: translateX(-50%);
+                            animation: blink 1s infinite;
+                            transition: left 0.1s ease;
+                        }
+                        @keyframes blink {
+                            0%, 50% { opacity: 1; }
+                            51%, 100% { opacity: 0; }
+                        }
+                        .typing-container {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            text-align: center;
+                            white-space: nowrap;
+                        }
+                        .typing-char {
+                            display: inline-block;
                             opacity: 0;
+                            transform: scale(0.8);
+                            transition: all 0.15s ease;
+                        }
+                        .typing-char.visible {
+                            opacity: 1;
+                            transform: scale(1);
                         }
                     `;
                     document.head.appendChild(style);
                 }
 
-                if (helloSpan) {
-                    setInterval(() => {
-                        helloSpan.classList.add('fade');
+                function createTypingText() {
+                    // Clear existing content
+                    helloSpan.innerHTML = '';
+                    
+                    // Create container for typing characters
+                    const container = document.createElement('div');
+                    container.className = 'typing-container';
+                    
+                    // Create spans for each character
+                    const currentText = hellos[greetIndex];
+                    for (let i = 0; i < currentText.length; i++) {
+                        const charSpan = document.createElement('span');
+                        charSpan.className = 'typing-char';
+                        charSpan.textContent = currentText[i];
+                        container.appendChild(charSpan);
+                    }
+                    
+                    helloSpan.appendChild(container);
+                }
+
+                function updateCursorPosition() {
+                    const visibleChars = helloSpan.querySelectorAll('.typing-char.visible');
+                    const container = helloSpan.querySelector('.typing-container');
+                    
+                    if (visibleChars.length > 0 && container) {
+                        const lastChar = visibleChars[visibleChars.length - 1];
+                        const containerRect = container.getBoundingClientRect();
+                        const charRect = lastChar.getBoundingClientRect();
+                        const relativeLeft = charRect.right - containerRect.left;
+                        
+                        // Update cursor position using CSS custom property
+                        helloSpan.style.setProperty('--cursor-left', `${relativeLeft}px`);
+                    } else {
+                        // Reset cursor to center when no characters are visible
+                        helloSpan.style.setProperty('--cursor-left', '50%');
+                    }
+                }
+
+                function typeText() {
+                    const charSpans = helloSpan.querySelectorAll('.typing-char');
+                    
+                    if (isDeleting) {
+                        // Hide characters from right to left
+                        if (charIndex > 0) {
+                            charSpans[charIndex - 1].classList.remove('visible');
+                            charIndex--;
+                            updateCursorPosition();
+                        }
+                        typingSpeed = 40;
+                    } else {
+                        // Show characters from left to right
+                        if (charIndex < charSpans.length) {
+                            charSpans[charIndex].classList.add('visible');
+                            charIndex++;
+                            updateCursorPosition();
+                        }
+                        typingSpeed = 80;
+                    }
+
+                    // Handle direction changes
+                    if (!isDeleting && charIndex === charSpans.length) {
+                        // Finished typing, wait then start deleting
                         setTimeout(() => {
+                            isDeleting = true;
+                            typeText();
+                        }, 1200);
+                        return;
+                    } else if (isDeleting && charIndex === 0) {
+                        // Finished deleting, move to next word
+                        isDeleting = false;
                             greetIndex = (greetIndex + 1) % hellos.length;
-                            helloSpan.textContent = hellos[greetIndex];
-                            helloSpan.classList.remove('fade');
-                        }, 700); // match fade duration
-                    }, 1800); // slightly less delay between changes
+                        createTypingText();
+                        setTimeout(typeText, 600);
+                        return;
+                    }
+
+                    // Continue typing/deleting
+                    setTimeout(typeText, typingSpeed);
+                }
+
+                if (helloSpan) {
+                    // Initialize with first text and start typing
+                    createTypingText();
+                    typeText();
                 }
             });
         </script>
