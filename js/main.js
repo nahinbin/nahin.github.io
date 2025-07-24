@@ -521,6 +521,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.explore-card').forEach(function(card) {
+    var bg = card.getAttribute('data-bg');
+    if (bg) {
+      card.style.setProperty('--explore-bg', `url('${bg}')`);
+    }
+  });
+});
+
 
   const form = document.getElementById("contactForm");
   const status = document.getElementById("formStatus");
