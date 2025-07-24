@@ -2536,3 +2536,26 @@ h1, p, .cardTitle, .cardLink, .project-title, .project-link, .certificate-link, 
   content: none !important;
 }
 
+/* Overlay for hamburger menu background blur */
+.menu-blur-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1030; /* below navbar */
+  background: rgba(20, 20, 20, 0.4);
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.menu-blur-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.navbar.navbar-expand-sm.fixed-top {
+  z-index: 1040;
+}
+

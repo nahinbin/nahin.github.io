@@ -2,6 +2,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Hamburger Menu Animation
     const hamburger = document.querySelector('.custom-hamburger');
+    const navbar = document.querySelector('.navbar');
+    // Create or get the blur overlay
+    let blurOverlay = document.querySelector('.menu-blur-overlay');
+    if (!blurOverlay) {
+        blurOverlay = document.createElement('div');
+        blurOverlay.className = 'menu-blur-overlay';
+        document.body.appendChild(blurOverlay);
+    }
     
     console.log('Hamburger element found:', hamburger);
     
@@ -11,6 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Toggling hamburger, current state:', hamburger.classList.contains('active'));
             hamburger.classList.toggle('active');
             console.log('New state:', hamburger.classList.contains('active'));
+            // Toggle blur overlay
+            if (hamburger.classList.contains('active')) {
+                blurOverlay.classList.add('active');
+            } else {
+                blurOverlay.classList.remove('active');
+            }
         }
         
         // Listen for clicks on the hamburger button
@@ -28,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Close hamburger when nav link is clicked
                 setTimeout(() => {
                     hamburger.classList.remove('active');
+                    blurOverlay.classList.remove('active');
                 }, 100);
             });
         });
