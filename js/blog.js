@@ -1,6 +1,48 @@
 // Blog Page JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     
+    // SPA Blog navigation logic
+    const blogGrid = document.getElementById('blogGrid');
+    const cardLinks = document.querySelectorAll('.blog-card-link');
+    const postSections = document.querySelectorAll('.post-content-wrapper');
+    const backButtons = document.querySelectorAll('.back-to-blog');
+    const blogHeader = document.getElementById('blogHeader');
+
+    function showPost(postId) {
+        blogGrid.style.display = 'none';
+        if (blogHeader) blogHeader.style.display = 'none';
+        postSections.forEach(section => {
+            section.style.display = (section.id === postId) ? '' : 'none';
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showGrid() {
+        blogGrid.style.display = '';
+        if (blogHeader) blogHeader.style.display = '';
+        postSections.forEach(section => {
+            section.style.display = 'none';
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    cardLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const postId = this.getAttribute('data-post');
+            showPost(postId);
+        });
+    });
+
+    backButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            showGrid();
+        });
+    });
+
+    // Hide all post sections initially
+    showGrid();
+    
     // Like button functionality
     const likeButtons = document.querySelectorAll('.like-btn');
     

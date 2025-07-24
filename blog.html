@@ -35,9 +35,6 @@
                             <a class="nav-link" href="/">portfolio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="blog">blog</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="index.html#contactinfo">Contact</a>
                         </li>
                     </ul>
@@ -50,226 +47,127 @@
     <main class="blog-main">
         <div class="container">
             <!-- Blog Header -->
-            <div class="blog-header">
+            <div class="blog-header" id="blogHeader">
                 <h1 class="blog-title">Blog</h1>
                 <p class="blog-subtitle">Thoughts, tutorials, and random musings</p>
             </div>
 
             <!-- About Me Section -->
-            <div class="about-me-section">
-                <div class="about-me-card">
-                    <div class="about-me-header">
-                        <img src="assets/images/me.jpeg" alt="Nahin" class="about-me-avatar">
-                        <div class="about-me-info">
-                            <h2 class="about-me-name">Nahin Bin Monir</h2>
-                            <p class="about-me-bio">I am Nahin Bin Monir, a foundation year student at Multimedia University (MMU) passionate about technology, software, and AI. I love building things and exploring how code shapes our world. <a href="about">see more...</a></p>
-                            <div class="about-me-stats">
-                                <div class="stat">
-                                    <span class="stat-number">4</span>
-                                    <span class="stat-label">Posts</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-number">2.1k</span>
-                                    <span class="stat-label">Views</span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-number">156</span>
-                                    <span class="stat-label">Likes</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="about-me-tags">
-                        <span class="about-tag">#WebDevelopment</span>
-                        <span class="about-tag">#JavaScript</span>
-                        <span class="about-tag">#AI</span>
-                        <span class="about-tag">#Python</span>
-                        <span class="about-tag">#ChromeExtension</span>
-                    </div>
-                </div>
-            </div>
+            <!-- (Removed the about-me-section for minimalism) -->
 
             <!-- Blog Feed -->
-            <div class="blog-feed">
+            <div class="blog-feed" id="blogGrid">
                 <!-- Post 1 -->
-                <article class="blog-post">
-                    <div class="post-header">
-                        <div class="post-author">
-                            <img src="assets/images/me.jpeg" alt="Nahin" class="author-avatar">
-                            <div class="author-info">
-                                <h3 class="author-name">Nahin Bin Monir</h3>
-                                <span class="post-date">2 hours ago</span>
-                            </div>
-                        </div>
-                        <button class="post-menu-btn">
-                            <i class="fas fa-ellipsis-h"></i>
-                        </button>
-                    </div>
-                    
-                    <div class="post-content">
-                        <p class="post-text">Just finished building my first Chrome extension! 🚀 It's been an amazing journey learning about browser APIs and JavaScript. The extension helps with productivity and I'm excited to share the code soon.</p>
+                <a href="#" class="blog-card-link" data-post="post1">
+                    <article class="blog-post">
                         <div class="post-image">
                             <img src="assets/images/listo.png" alt="Listo Chrome Extension">
                         </div>
-                        <div class="post-tags">
-                            <span class="tag">#ChromeExtension</span>
-                            <span class="tag">#JavaScript</span>
-                            <span class="tag">#WebDev</span>
+                        <div class="post-info">
+                            <h3 class="post-title">Just finished building my first Chrome extension!</h3>
+                            <span class="post-date">2 hours ago</span>
                         </div>
-                    </div>
-                    
-                    <div class="post-actions">
-                        <button class="action-btn like-btn" data-liked="false">
-                            <i class="far fa-heart"></i>
-                            <span class="action-count">24</span>
-                        </button>
-                        <button class="action-btn comment-btn">
-                            <i class="far fa-comment"></i>
-                            <span class="action-count">8</span>
-                        </button>
-                        <button class="action-btn share-btn">
-                            <i class="far fa-share-square"></i>
-                        </button>
-                        <button class="action-btn bookmark-btn">
-                            <i class="far fa-bookmark"></i>
-                        </button>
-                    </div>
-                </article>
-
+                    </article>
+                </a>
                 <!-- Post 2 -->
-                <article class="blog-post">
-                    <div class="post-header">
-                        <div class="post-author">
-                            <img src="assets/images/me.jpeg" alt="Nahin" class="author-avatar">
-                            <div class="author-info">
-                                <h3 class="author-name">Nahin Bin Monir</h3>
-                                <span class="post-date">1 day ago</span>
-                            </div>
-                        </div>
-                        <button class="post-menu-btn">
-                            <i class="fas fa-ellipsis-h"></i>
-                        </button>
-                    </div>
-                    
-                    <div class="post-content">
-                        <p class="post-text">Learning AI and machine learning has been mind-blowing! 🤖 Working on some interesting projects with TensorFlow and Python. The possibilities are endless when you combine AI with web development.</p>
+                <a href="#" class="blog-card-link" data-post="post2">
+                    <article class="blog-post">
                         <div class="post-image">
                             <img src="assets/images/build-with-ai.jpg" alt="AI Development">
                         </div>
-                        <div class="post-tags">
-                            <span class="tag">#AI</span>
-                            <span class="tag">#MachineLearning</span>
-                            <span class="tag">#Python</span>
-                            <span class="tag">#TensorFlow</span>
+                        <div class="post-info">
+                            <h3 class="post-title">Learning AI and machine learning has been mind-blowing!</h3>
+                            <span class="post-date">1 day ago</span>
                         </div>
-                    </div>
-                    
-                    <div class="post-actions">
-                        <button class="action-btn like-btn" data-liked="false">
-                            <i class="far fa-heart"></i>
-                            <span class="action-count">42</span>
-                        </button>
-                        <button class="action-btn comment-btn">
-                            <i class="far fa-comment"></i>
-                            <span class="action-count">15</span>
-                        </button>
-                        <button class="action-btn share-btn">
-                            <i class="far fa-share-square"></i>
-                        </button>
-                        <button class="action-btn bookmark-btn">
-                            <i class="far fa-bookmark"></i>
-                        </button>
-                    </div>
-                </article>
-
+                    </article>
+                </a>
                 <!-- Post 3 -->
-                <article class="blog-post">
-                    <div class="post-header">
-                        <div class="post-author">
-                            <img src="assets/images/me.jpeg" alt="Nahin" class="author-avatar">
-                            <div class="author-info">
-                                <h3 class="author-name">Nahin Bin Monir</h3>
-                                <span class="post-date">3 days ago</span>
-                            </div>
+                <a href="#" class="blog-card-link" data-post="post3">
+                    <article class="blog-post">
+                        <div class="post-image">
+                            <!-- No image for this post -->
                         </div>
-                        <button class="post-menu-btn">
-                            <i class="fas fa-ellipsis-h"></i>
-                        </button>
-                    </div>
-                    
-                    <div class="post-content">
-                        <p class="post-text">Started my foundation year at Multimedia University! 📚 Excited to dive deep into computer science fundamentals. The journey from learning basic programming to building real-world applications has been incredible.</p>
-                        <div class="post-tags">
-                            <span class="tag">#University</span>
-                            <span class="tag">#ComputerScience</span>
-                            <span class="tag">#Learning</span>
+                        <div class="post-info">
+                            <h3 class="post-title">Started my foundation year at Multimedia University!</h3>
+                            <span class="post-date">3 days ago</span>
                         </div>
-                    </div>
-                    
-                    <div class="post-actions">
-                        <button class="action-btn like-btn" data-liked="false">
-                            <i class="far fa-heart"></i>
-                            <span class="action-count">67</span>
-                        </button>
-                        <button class="action-btn comment-btn">
-                            <i class="far fa-comment"></i>
-                            <span class="action-count">23</span>
-                        </button>
-                        <button class="action-btn share-btn">
-                            <i class="far fa-share-square"></i>
-                        </button>
-                        <button class="action-btn bookmark-btn">
-                            <i class="far fa-bookmark"></i>
-                        </button>
-                    </div>
-                </article>
-
+                    </article>
+                </a>
                 <!-- Post 4 -->
-                <article class="blog-post">
-                    <div class="post-header">
-                        <div class="post-author">
-                            <img src="assets/images/me.jpeg" alt="Nahin" class="author-avatar">
-                            <div class="author-info">
-                                <h3 class="author-name">Nahin Bin Monir</h3>
-                                <span class="post-date">1 week ago</span>
-                            </div>
-                        </div>
-                        <button class="post-menu-btn">
-                            <i class="fas fa-ellipsis-h"></i>
-                        </button>
-                    </div>
-                    
-                    <div class="post-content">
-                        <p class="post-text">Just deployed my personal website! 🎉 Built with HTML, CSS, and JavaScript. It's amazing how much you can learn from building something from scratch. The design process was challenging but rewarding.</p>
+                <a href="#" class="blog-card-link" data-post="post4">
+                    <article class="blog-post">
                         <div class="post-image">
                             <img src="assets/images/personal-website.png" alt="Personal Website">
                         </div>
-                        <div class="post-tags">
-                            <span class="tag">#WebDevelopment</span>
-                            <span class="tag">#HTML</span>
-                            <span class="tag">#CSS</span>
-                            <span class="tag">#JavaScript</span>
+                        <div class="post-info">
+                            <h3 class="post-title">Just deployed my personal website!</h3>
+                            <span class="post-date">1 week ago</span>
+                        </div>
+                    </article>
+                </a>
+            </div>
+
+            <!-- Individual Post Sections (hidden by default) -->
+            <div class="post-content-wrapper" id="post1" style="display:none;">
+                <div class="post-modal-flex">
+                    <div class="post-modal-image-col">
+                        <img src="assets/images/listo.png" alt="Listo Chrome Extension" class="post-full-image">
+                        <a href="#" class="back-to-blog">&lt; blog</a>
+                    </div>
+                    <div class="post-modal-content-col">
+                        <h1 class="post-title">Just finished building my first Chrome extension!</h1>
+                        <span class="post-date">2 hours ago</span>
+                        <div class="post-content">
+                            <p>I just finished building my very first Chrome extension! 🚀 It was an amazing journey learning about browser APIs and JavaScript. The extension is designed to help with productivity, and I’m excited to share the code soon. Stay tuned for more updates!</p>
                         </div>
                     </div>
-                    
-                    <div class="post-actions">
-                        <button class="action-btn like-btn" data-liked="false">
-                            <i class="far fa-heart"></i>
-                            <span class="action-count">89</span>
-                        </button>
-                        <button class="action-btn comment-btn">
-                            <i class="far fa-comment"></i>
-                            <span class="action-count">31</span>
-                        </button>
-                        <button class="action-btn share-btn">
-                            <i class="far fa-share-square"></i>
-                        </button>
-                        <button class="action-btn bookmark-btn">
-                            <i class="far fa-bookmark"></i>
-                        </button>
-                    </div>
-                </article>
+                </div>
             </div>
+            <div class="post-content-wrapper" id="post2" style="display:none;">
+                <div class="post-modal-flex">
+                    <div class="post-modal-image-col">
+                        <img src="assets/images/build-with-ai.jpg" alt="AI Development" class="post-full-image">
+                        <a href="#" class="back-to-blog">&lt; blog</a>
+                    </div>
+                    <div class="post-modal-content-col">
+                        <h1 class="post-title">Learning AI and machine learning has been mind-blowing!</h1>
+                        <span class="post-date">1 day ago</span>
+                        <div class="post-content">
+                            <p>Learning AI and machine learning has been a mind-blowing experience! 🤖 I’ve been working on some interesting projects with TensorFlow and Python. The possibilities are endless when you combine AI with web development, and I’m excited to keep exploring this field.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="post-content-wrapper" id="post3" style="display:none;">
+                <div class="post-modal-flex">
+                    <div class="post-modal-image-col">
+                        <a href="#" class="back-to-blog">&lt; blog</a>
+                    </div>
+                    <div class="post-modal-content-col">
+                        <h1 class="post-title">Started my foundation year at Multimedia University!</h1>
+                        <span class="post-date">3 days ago</span>
+                        <div class="post-content">
+                            <p>I’ve started my foundation year at Multimedia University! 📚 I’m excited to dive deep into computer science fundamentals. The journey from learning basic programming to building real-world applications has been incredible so far, and I can’t wait to see what’s next.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="post-content-wrapper" id="post4" style="display:none;">
+                <div class="post-modal-flex">
+                    <div class="post-modal-image-col">
+                        <img src="assets/images/personal-website.png" alt="Personal Website" class="post-full-image">
+                        <a href="#" class="back-to-blog">&lt; blog</a>
+                    </div>
+                    <div class="post-modal-content-col">
+                        <h1 class="post-title">Just deployed my personal website!</h1>
+                        <span class="post-date">1 week ago</span>
+                        <div class="post-content">
+                            <p>I just deployed my personal website! 🎉 Built with HTML, CSS, and JavaScript, it was a challenging but rewarding process. I learned so much from building something from scratch, and I’m excited to share it with the world!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Bootstrap JS -->
