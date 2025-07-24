@@ -137,33 +137,7 @@ section {
     width: 100%;
 }
 
-#hello-text {
-    position: relative;
-    display: inline-block;
-    min-height: 3rem;
-    overflow: hidden;
-}
-.hello-word {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s;
-    text-align: center;
-    color: var(--soft-white);
-    pointer-events: none;
-    z-index: 1;
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-.hello-word.active {
-    opacity: 0.4;
-    transform: translateY(0);
-}
-.hello-word.fade-out {
-    opacity: 0;
-    transform: translateY(-20px);
-}
+
 
 #designTitle { margin-top: 25vh; margin-bottom: 25px; width: 100%; }
 .titleContacts { margin: auto; }
@@ -329,6 +303,15 @@ section {
     max-width: 700px;
     margin: 0 auto !important;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .aboutMe > .container {
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: left;
+        padding: 0 1rem;
+    }
 }
 
 .nameheader {
@@ -1706,23 +1689,7 @@ textarea.form-input {
         min-height: unset;
         padding: 2rem 1rem;
     }
-    .hello-left {
-        position: static !important;
-        top: unset !important;
-        left: unset !important;
-        max-width: 100vw;
-        width: 100vw;
-        margin: 0;
-        padding: 0 16px;
-        z-index: 10;
-        align-items: center;
-    }
-    .hello-left .nameheader {
-        max-width: 100vw;
-        width: 100vw;
-        font-size: 2rem;
-        margin-bottom: 0.5rem !important;
-    }
+
     .description {
         position: static !important;
         right: unset !important;
@@ -1732,8 +1699,8 @@ textarea.form-input {
         width: 100vw;
         max-width: 100vw;
         margin: 0 !important;
-        padding: 0 16px;
-        text-align: center !important;
+        padding: 0 32px;
+        text-align: left !important;
         font-size: 1rem;
         z-index: 1;
     }
@@ -1966,17 +1933,7 @@ textarea.form-input {
     box-shadow: 0 2px 16px rgba(0,0,0,0.2);
 }
 
-/* --- HELLO TEXT CENTERED ON PAGE --- */
-.hello-left {
-    position: relative;
-    z-index: 10;
-    max-width: 500px;
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
+
 
 .aboutMe {
     position: relative !important;
@@ -2021,12 +1978,7 @@ h1, p, .cardTitle, .cardLink, .project-title, .project-link, .certificate-link, 
 
 /* For any remaining hardcoded white, #fff, or #ffffff, replace with #fffee6 */
 
-#hello-animated {
-    font-size: 1.5rem !important;
-    font-weight: 800 !important;
-    letter-spacing: 0.02em;
-    color: var(--soft-white) !important;
-}
+
 
 /* =========================
    Bootstrap Navbar Overrides - High Specificity
